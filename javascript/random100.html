@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Le juste nombre</title>
   </head>
   <body>
-    <script>
-    var randomnumb = Math.round(Math.random() * 100);
-    var Question1 = "Choisi un numéro entre 0 et 100";
+    <script type="text/javascript">
+    var randomNumb = Math.round(Math.random()*100);
+    var notFound =true;
     var user;
-    var notFound = true;
-    var bcp = parseInt(user) - randomnumb
-    console.log(randomnumb);
-
+    document.write(randomNumb);
+    console.log(randomNumb);
     while (notFound) {
-    user = prompt(Question1);
-      if (parseInt(user) == randomnumb ) {
-        alert("Bravo!");
+      user = prompt("Deviner un chiffre entre 0 et 100.");
+      if (user == randomNumb){
+        alert("Bravo.");
         notFound = false;
-      } else if (parseInt(user) < randomnumb) {
-        alert("Chiffre  trop petit !");
-      } else if (parseInt(user) > randomnumb) {
-        alert("Chiffre  trop grand !");
+      } else if (user >= randomNumb+10) {
+        alert("La useronse est beaucoup plus petite.");
+      } else if (user <= randomNumb-10) {
+        alert("La useronse est beaucoup plus grande.");
+      } else if (user > randomNumb) {
+        alert("La useronse est plus petite.");
+      } else if (user < randomNumb) {
+        alert("La reponse est plus grande.");
       } else {
-        alert("Erreur");
-      }
+        alert("Erreur!!");
+        }
+
     }
     </script>
-
   </body>
 </html>
