@@ -1,0 +1,47 @@
+h1 {
+font-family: Serif;
+top: 120px;
+position:relative;
+margin-left: 20px;
+
+}
+img {
+  position: relative;
+  width: 150px;
+  left : 355px;
+  bottom : 30px;
+}
+h2 {
+color: grey;
+margin-left: 50px;
+}
+h3 {
+  color:lightgrey;
+  text-align: right;
+  margin-right: 50px;
+}
+h4 {
+  font-weight: normal;
+  margin-left: 40px;
+  margin-top: 20px;
+  line-height: 75px;
+}
+body {
+  border-style: double;
+  border-color: none;
+  margin-right: 1000px;
+  margin-bottom: 35em;
+  margin-top: 0px;
+}
+span {
+  text-align: right;
+  margin-left: 75px;
+  color: black;
+  margin-top: 20px;
+}
+div {
+  display: block;
+  background-color: lightgrey;
+  margin-right: 0px;
+  height: 75px;
+}

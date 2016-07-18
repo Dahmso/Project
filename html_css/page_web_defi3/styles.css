@@ -1,0 +1,91 @@
+
+ul  {
+  background-color: #7c795d;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 75%;
+  display: inline-block;
+
+}
+li  {
+  float: left;
+}
+li a {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: White;
+  text-decoration: none;
+  font-family: Times;
+  font-size: 150%;
+}
+li a:hover {
+  color : #a6a6a6;
+  background-color: beige;
+}
+.Heading {
+  margin: 80px;
+  display: inline;
+  position: absolute;
+  font-family: sans-serif;
+  width: 50%;
+  border-bottom: 2px solid lightgrey;
+  font-size: 150%;
+}
+span {
+  color: darkgrey;
+  font-size: 75%;
+}
+.one {
+  display: flex;
+  align-items: center;
+}
+.one img{
+  padding: 20px;
+  margin: 50px;
+  margin-top: 200px;
+}
+.para {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin-top: 170px;
+}
+.button {
+    background-color: #000066;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 170px;
+}
+h1 {
+  font-family: Times;
+  color:  #7c795d;
+}
+h2 {
+  font-family: Times;
+  color : #c9d0d4;
+
+}
+.two {
+  display: flex;
+  align-items: center;
+}
+.two img{
+  padding: 20px;
+  margin: 50px;
+  margin-top: 50px;
+}
+.para1 {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin-top: 10px;

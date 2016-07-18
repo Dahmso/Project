@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    var operation = prompt("Addition, Soustraction, Multiplication, Division ?")
+    var num1 = prompt("Premier nombre:")
+    var num2 = prompt("Deuxième nombre:")
+    switch (operation) {
+      case "Addition":
+      alert(parseFloat(num1) + parseFloat(num2));
+      break;
+      case "Soustraction":
+      alert(parseFloat(num1) - parseFloat(num2));
+      break;
+      case "Multiplication":
+      alert(parseFloat(num1) * parseFloat(num2));
+      break;
+      case "Division":
+      alert(parseFloat(num1) / parseFloat(num2));
+      break;
+      default: "Erreur";
+    }
+    </script>
+
+  </body>
+</html>

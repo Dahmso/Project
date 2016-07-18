@@ -1,0 +1,47 @@
+<html>
+<body>
+<script>
+  var color = prompt("de quelle couleur est le cheval blanc d'Henri IV ?");
+    if (color == "blanc") {
+      console.log("Bravo !");
+    } else {
+    console.log("Perdu !");
+
+    }
+
+    var nain = prompt("Combien y'a t-il de 7 nains ?");
+
+      if (nain == "7") {
+        console.log("Bravo !");
+      } else {
+      console.log("Perdu !");
+      }
+var random = Math.floor((Math.random()*9)+1);
+var user = prompt("Choisi un numéro entre 0 et 9");
+var nbessai = 0;
+  if (user == random) {
+    console.log("Bravo!");
+    nbessai = 1;
+  } else if ( user < random) {
+      console.log("Chiffre trop bas !");
+
+
+  }
+  else if (user > random) {
+      console.log("Chiffre trop haut !");
+
+
+  }
+while (nbessai < 1) {
+  console.log("essaie encore !");
+  prompt("Choisi un numéro entre 0 et 9");
+  nbessai ++;
+}
+ if  (nbessai == 1) {
+  console.log("FIN");
+
+}
+
+</script>
+</body>
+</html>
