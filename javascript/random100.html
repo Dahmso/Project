@@ -6,10 +6,11 @@
   </head>
   <body>
     <script>
-    var randomnumb = Math.round((Math.random() * 100));
+    var randomnumb = Math.round(Math.random() * 100);
     var Question1 = "Choisi un numéro entre 0 et 100";
     var user;
     var notFound = true;
+    var bcp = parseInt(user) - randomnumb
     console.log(randomnumb);
 
     while (notFound) {
@@ -17,12 +18,12 @@
       if (parseInt(user) == randomnumb ) {
         alert("Bravo!");
         notFound = false;
-      } else if (parseInt(user) - randomnumb <= 10) {
-        alert("Chiffre beaucoup trop petit !");
-      } else  if (parseInt(user)  - randomnumb >= 10) {
-        alert("Chiffre beaucoup trop grand !");
+      } else if (parseInt(user) < randomnumb) {
+        alert("Chiffre  trop petit !");
+      } else if (parseInt(user) > randomnumb) {
+        alert("Chiffre  trop grand !");
       } else {
-        alert("tu y es presque !");
+        alert("Erreur");
       }
     }
     </script>
