@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calcul mental</title>
+  </head>
+  <body>
+    <script>
+    var i = 0;
+    while (i <= 2) {
+    var operator = ["+","/","-","*"];
+    var user;
+    var randomOp = operator[Math.floor((Math.random() * operator.length))];
+    var randomOp2 = operator[Math.floor((Math.random() * operator.length))];
+    var randomNumber1 = Math.floor((Math.random() * 10));
+    var randomNumber2 = Math.floor((Math.random() * 10));
+    var randomNumber3 = Math.floor((Math.random() * 10));
+
+    var result = eval(+randomNumber1 +randomOp +randomNumber2);
+    user = prompt("Combien font" + " " + randomNumber1 + " " + randomOp + " " + randomNumber2 + "?");
+      if (user == result) {
+         alert("Bien joué !");
+         i++;
+      } else {
+        alert("Perdu !");
+        i = 0;
+      }
+    }
+        var randomOp = operator[Math.floor((Math.random() * operator.length))];
+        var randomOp2 = operator[Math.floor((Math.random() * operator.length))];
+        var randomNumber1 = Math.floor((Math.random() * 10));
+        var randomNumber2 = Math.floor((Math.random() * 10));
+        var randomNumber3 = Math.floor((Math.random() * 10));
+        var user2 = prompt("Combien font" + " " + randomNumber1 + " " + randomOp + " " + randomNumber2 + randomOp2 + " " + randomNumber3 + "?");
+        var result2 = eval(randomNumber1 +randomOp +randomNumber2 +randomOp2 +randomNumber3);
+        if (result2 == user2) {
+        alert("Vous avez gagné !");
+        } else {
+        alert("Vous avez perdu !");
+        }
+
+
+    </script>
+  </body>
+</html>
