@@ -22,21 +22,21 @@
           compteurQuestion1 ++;
         }
     }
-      var compteurQuestion2 = true;
-      var Question2 = 'Combien y a t il de sept nains ?';
-      var reponseQuestion2;
-        while (compteurQuestion2) {
-        var reponseQuestion2 = prompt(Question2).toLowerCase();
-          if( Number.parseInt(reponseQuestion2) == "7" ){
-          alert('Bravo');
+    var compteurQuestion2 = true;
+    var Question2 = 'Combien y a t il de sept nains ?';
+    var reponseQuestion2;
+    while (compteurQuestion2) {
+    var reponseQuestion2 = prompt(Question2).toLowerCase();
+      if( Number.parseInt(reponseQuestion2) == "7" ){
+        alert('Bravo');
           compteurQuestion2 = false;
-          } else if (reponseQuestion2.toLowerCase() == "sept") {
-            alert('Bravo');
-            compteurQuestion2 = false;
-          } else {
-            alert('Erreur');
-           }
-        }
+    } else if (reponseQuestion2.toLowerCase() == "sept") {
+        alert('Bravo');
+        compteurQuestion2 = false;
+    } else {
+        alert('Erreur');
+      }
+    }
 
 
 </script>
