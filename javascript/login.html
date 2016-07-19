@@ -6,9 +6,36 @@
   </head>
   <body>
     <script>
-    var userEmail = "votre Email :";
-    var userPassword = "Mot de passe :";
-    var idincorrect = true;
+    var userEmail = "joe@gmail.com";
+    var userPassword = "12345";
+    var email;
+    var password;
+
+    while (userEmail != email) {
+      email = prompt("Identifiant :");
+        if (email.length < 4){
+        alert("Email trop court !");
+      } else if (email.indexOf('@') < 1){
+        alert("Format d'email non reconnu.");
+      } else if (userEmail == email) {
+          console.log(email);
+      } else {
+        alert("Identifiant incorrect.");
+      }
+    }
+    while (userPassword != password){
+    password = prompt("Mot de passe :");
+      if (password.length < 4) {
+        alert("Mot de passe trop court.");
+    } else if (userPassword == password) {
+      console.log(password);
+    } else {
+        alert("Mot de passe incorrect.")
+      }
+    }
+      if (password == userPassword && userEmail == email){
+        alert("Bienvenue !");
+      }
 
     </script>
   </body>
