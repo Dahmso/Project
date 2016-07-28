@@ -1,0 +1,27 @@
+.notifvalid {
+  background-color: lightgreen;
+  padding: 8px;
+  padding-left: 40px;
+  border-radius: 5px;
+  border: 2px solid green;
+  color: white;
+  margin-right: 75%;
+  background-image: url(http://www.rxlabz.com/simplon/files/icons/icon_check_white.png);
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+.notiferror {
+  margin-top: 10px;
+  background-color: orange;
+  padding: 8px;
+  padding-left: 40px;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  border: 2px solid darkred;
+  color: white;
+  margin-right: 75%;
+  background-image: url(http://www.rxlabz.com/simplon/files/icons/dialog-warning.png);
+  background-repeat: no-repeat;
+  background-position: 10px;
+}

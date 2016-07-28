@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="motdepasse.css">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="motdepassebox">
+      <h3>Mot de passe oublié ?</h3>
+      <h4>Veuillez entrer votre Email :</h4>
+        <input id="emailoublie" type="text" placeholder="Email ou Identifiant...">
+        <button onclick="popup()">Envoyer</button>
+    </div>
+    <script>
+    var compare;
+    var userAnswer;
+    var userData = ["toto@gmail.com","titi@gmail.com","joe@gmail.com","rick@gmail.com"];
+    function redirection(){
+      window.location = "formulaire.html";
+    }
+
+    function popup(){
+      userAnswer = document.getElementById("emailoublie").value;
+      for (var i = 0; i <= userData.length; i++) {
+      if (userAnswer == userData[i]){
+        compare = true;
+      }
+      }
+      console.log(compare);
+      if (compare == true){
+        alert("Un email avec un lien pour reinitialiser votre mot de passe vous a été envoyé.");
+        redirection();
+      } else {
+        alert("Email inconnu");
+      }
+    }
+
+    </script>
+
+  </body>
+</html>

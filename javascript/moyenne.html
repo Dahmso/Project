@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Moyenne</title>
+  </head>
+  <body>
+    <script>
+    var note = new Array();
+    var sum = 0;
+    function moyenne() {
+      for (var i = 1; i <= 10; i++){
+        note.push(prompt("Votre note N°"+ i));
+        console.log(note);
+      }
+      for (var i = 0; i < note.length; i++){
+      sum += parseInt(note[i]) / 10;
+      console.log('Your sum is ' + sum);
+  }
+    }
+
+    moyenne();
+    </script>
+
+  </body>
+</html>

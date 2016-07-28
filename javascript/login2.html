@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login multiple user</title>
+  </head>
+  <body>
+    <script>
+    var user = ["toto@gmail.com","titi@gmail.com","joe@gmail.com","rick@gmail.com"];
+    var password = ["12345","23456","78910","09876"];
+    var essai = 0;
+    var verif = true;
+    var secure;
+
+      while (verif) {
+        var userAccount = prompt("Identifiant :");
+        var userPassword = prompt("Mot de passe :");
+
+        for (var i = 0; i <= user.length; i++) {
+          if (user[i] == userAccount) {
+            if (password[i] == userPassword) {
+              secure = true;
+              console.log("SUCCESS");
+              verif = false;
+            } else {
+              secure = false;
+              console.log("1");
+            }
+          } else {
+            secure = false;
+            console.log("2");
+          }
+        }
+
+        if (secure = false) {
+          alert("Indentifiant incorrect.");
+          essai++;
+          console.log(essai);
+          if (essai = 4)   {
+              user.push(prompt("Identifiant inconnu, inscrivez vous :"));
+              password.push(prompt("Choisissez un mot de passe :"));
+              console.log(essai);
+          }
+        } else if ((verif = false) && (secure = true)) {
+          alert("Bienvenue !");
+        } else {
+          alert("Identifiant non reconnu.");
+        }
+
+
+
+
+
+        if (userAccount == "reset") {
+          verif = false;
+        }
+      }
+/*
+      user.push(prompt("Identifiant inconnu, inscrivez vous :"));
+      password.push(prompt("Choisissez un mot de passe :"));
+      console.log(essai);
+*/
+
+    </script>
+  </body>
+</html>

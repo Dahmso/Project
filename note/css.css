@@ -1,0 +1,16 @@
+/*Mettre une legend dans un fieldset with a border */
+fieldset {
+    position:relative;
+    padding-top:50px;
+}
+
+legend {
+    position:absolute;
+    top:20px;
+    left:18px;
+}​
+/*Enlever focus */
+h1  {
+outline: none
+}
+/***********************************************/
