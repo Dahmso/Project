@@ -18,12 +18,8 @@
     -webkit-box-shadow: 5px 5px 5px 0px #c0c0c0;
 
 }
-
-.motdepassebox h3 {
-
-}
 .motdepassebox h4 {
-display:inline-block;
+  display:inline-block;
 }
 .motdepassebox input {
   max-width: 71%;
@@ -34,7 +30,7 @@ display:inline-block;
 .motdepassebox button {
   color: white;
   padding: 10px;
-  width: 100px;
+  width: 150px;
   background-color: #008000;
   border-radius: 5px;
   display: inline-block;
@@ -47,7 +43,7 @@ display:inline-block;
 }
 button:hover {
   background-color: #009900;
-  transition: all .4s ease-in-out;
+  transition: scale .4s ease-in-out;
   transform: scale(1.05);
   font-weight: bold;
 }
