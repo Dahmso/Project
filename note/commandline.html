@@ -1,32 +1,45 @@
-/////////<Copie/suppr/deplace>//////////
-<cp> copies files
-<mv> moves and renames files
-<rm> removes files
-<rm -r> removes directories
+/////////<Copie/Suppr/Deplace>//////////
+<cp> copie fichier
+<mv> deplace et renomme le fichier
+<rm> supprime le fichier
+<rm -r> supprime le dossier
 
 ///////////////<Liste>//////////////////
-<ls -a> lists all contents of a directory, including hidden files and directories
-<ls -l> lists all contents in long format
-<ls -t> orders files and directories by the time they were last modified
-Multiple options can be used together, like <ls -alt>
+<ls -a> liste le contenu d'un dossier, même les fichiers cachés et dossier
+<ls -l> liste le contenu en detail
+<ls -t> classe les fichiers et dossiers la dernière fois ou ils ont été modifiés
+les options peuvent être additionnés <ls -alt>
 
 //////////////<Creation_Navigation>//////////////
-<pwd> outputs the name of the current working directory.
-<ls> lists all files and directories in the working directory.
-<cd> switches you into the directory you specify.
-<mkdir> creates a new directory in the working directory.
-<touch> creates a new file inside the working directory.
+<pwd> affiche le chemin du dossier
+<ls> affiche tout les fichiers et dossiers dans le dossier en cours.
+<cd> change de dossier/chemin
+<mkdir> crée un nouveau dossier dans le dossier en cours.
+<touch> crée un nouveau fichier dans le dossier en cours.
 
 //////////////////<Redirection I>////////////////////
-<sort> sorts lines of text alphabetically.
-<uniq> filters duplicate, adjacent lines of text.
-<grep> searches for a text pattern and outputs it.
-<sed> searches for a text pattern, modifies it, and outputs it.
+<sort> classe par ordre alphabetiques les lignes de texte.
+<uniq> filtres les lignes adjacentes qui se repetent.
+<grep> recherche un mot et le ressort(log)
+<sed> recherche un mot, le modifie et le Sort(log)..
 
 ////////////////////<Redirection///////////////////////
-">" redirects standard output of a command to a file, overwriting previous content.
-">>" redirects standard output of a command to a file, appending new content to old content.
-"<" redirects standard input to a command.
-"|" redirects standard output of a command to another command.>
+">" redirige la sortie standard une commande sur un fichier, ecrasant ancien contenu.
+">>" redirige sortie standard une commande sur une ficher, annexant le nouveau contenu sur ancien.
+"<" redirige entree standard sur une commande.
+"|" redirige la sortie standard de commande sur une autre commande.>
 
-//////////////////////////////////////////////////////
+/////////////////////<Environnement-Variable>///////////////////////////
+<export VARIABLE="Value"> sets and exports an environment variable.
+<USER> le nom de l'utilisateur.
+<PS1> la commande prompt.
+<HOME> Home repertoire. non modifié habituellement.
+<PATH> Lorsque vous tapez une commande, le système la cherche dans les dossiers spécifiés par la variable PATH.
+<env> affiche toutes les variables d'environnement.
+
+/////////////////////<Git Branch Workflow>////////////////////////
+<git branch:> liste toutes les branches.
+<git branch branch_name:> crée une nouvelle branche.
+<git checkout branch_name:> Switch d'une branche à l'autre.
+<git merge branch_name:> applique les changements sur plusieurs branches.
+<git branch -d branch_name:> supprime la branche specifiée.
