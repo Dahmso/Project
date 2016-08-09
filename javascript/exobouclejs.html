@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Fonction loop</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <script>
-    //  Enumeration chiffre partant de 1
-    var str ="";
-    function repeat(){
-      for (var i = 1; i <= 10; i++) {
-        str += i;
-        document.write(str +"<br>");
-      }
-    }
-    repeat()
+        //  Enumeration chiffre partant de 1
+        var str = "";
+
+        function repeat() {
+            for (var i = 1; i <= 10; i++) {
+                str += i;
+                document.write(str + "<br>");
+            }
+        }
+        repeat()
     </script>
 
     <script>
-    // Alphabet en Pyramide
-    var str ="";
-    function repeat(){
-      for (var i = 0; i <= 25; i++) {
-        str += String.fromCharCode(97 + i);
-        document.write(str +"<br>");
-      }
-    }
-    repeat()
-      </script>
-      <script>
+        // Alphabet en Pyramide
+        var str = "";
 
-    // Pyramide de #
-    var str ="";
-    function repeat(){
-      for (var i = 0; i <= 10; i++) {
-        str += String.fromCharCode(35);
-        document.write(str +"<br>");
-      }
-    }
-    repeat()
+        function repeat() {
+            for (var i = 0; i <= 25; i++) {
+                str += String.fromCharCode(97 + i);
+                document.write(str + "<br>");
+            }
+        }
+        repeat()
+    </script>
+    <script>
+        // Pyramide de #
+        var str = "";
 
+        function repeat() {
+            for (var i = 0; i <= 10; i++) {
+                str += String.fromCharCode(35);
+                document.write(str + "<br>");
+            }
+        }
+        repeat()
     </script>
 
-  </body>
+</body>
+
 </html>

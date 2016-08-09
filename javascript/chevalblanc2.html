@@ -1,46 +1,47 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>De quelle couleur...</title>
 </head>
+
 <body>
-<script type="text/javascript">
-    var Question1 = "De quelle couleur est le cheval blanc d'Henri IV";
-    var compteurQuestion1 = 0;
-    var reponseQuestion1;
-    console.log('reponseQuestion1', reponseQuestion1);
-    while (compteurQuestion1 < 2) {
-      prompt(Question1).toLowerCase();
-      compteurQuestion1 ++;
-      var reponseQuestion1 = prompt(Question1).toLowerCase()
-      if(reponseQuestion1 == "blanc"){
-        alert('Bravo');
-        compteurQuestion1 = 2;
-      } else {
-          alert('Erreur');
-          compteurQuestion1 ++;
+    <script type="text/javascript">
+        var Question1 = "De quelle couleur est le cheval blanc d'Henri IV";
+        var compteurQuestion1 = 0;
+        var reponseQuestion1;
+        console.log('reponseQuestion1', reponseQuestion1);
+        while (compteurQuestion1 < 2) {
+            prompt(Question1).toLowerCase();
+            compteurQuestion1++;
+            var reponseQuestion1 = prompt(Question1).toLowerCase()
+            if (reponseQuestion1 == "blanc") {
+                alert('Bravo');
+                compteurQuestion1 = 2;
+            } else {
+                alert('Erreur');
+                compteurQuestion1++;
+            }
         }
-    }
-    var compteurQuestion2 = true;
-    var Question2 = 'Combien y a t il de sept nains ?';
-    var reponseQuestion2;
-    while (compteurQuestion2) {
-    var reponseQuestion2 = prompt(Question2).toLowerCase();
-      if( Number.parseInt(reponseQuestion2) == "7" ){
-        alert('Bravo');
-          compteurQuestion2 = false;
-    } else if (reponseQuestion2.toLowerCase() == "sept") {
-        alert('Bravo');
-        compteurQuestion2 = false;
-    } else {
-        alert('Erreur');
-      }
-    }
-
-
-</script>
+        var compteurQuestion2 = true;
+        var Question2 = 'Combien y a t il de sept nains ?';
+        var reponseQuestion2;
+        while (compteurQuestion2) {
+            var reponseQuestion2 = prompt(Question2).toLowerCase();
+            if (Number.parseInt(reponseQuestion2) == "7") {
+                alert('Bravo');
+                compteurQuestion2 = false;
+            } else if (reponseQuestion2.toLowerCase() == "sept") {
+                alert('Bravo');
+                compteurQuestion2 = false;
+            } else {
+                alert('Erreur');
+            }
+        }
+    </script>
 
 
 </body>
+
 </html>

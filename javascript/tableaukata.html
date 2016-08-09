@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tableau</title>
+</head>
+
+<body>
+    <script>
+        //var prenom = "paul";
+        var prenom = 'paul'
+            // TODO : ajouter une majuscule
+        function firstLetterMaj(param) {
+            return param.charAt(0).toUpperCase() + param.slice(1);
+        }
+
+        console.log('prenom avec premiere lettre en majuscule ' + firstLetterMaj(prenom)); //Paul
+
+        //var users = ["joe", "lea", "bob", "ann"];
+
+        // TODO : ajouter une majuscule à tous les prenoms de la liste
+        function UsersMaj() {
+            for (var i = 0; i < users.length; i++) {
+                return users[i] = param[i].charAt(0).toUpperCase() + param[i].slice(1);
+            }
+        }
+        console.log('Prenoms avec premiere lettre en majuscule', UsersMaj(users)); //Joe, Lea, Bob, Ann
+
+        // TODO : liste des prenoms qui commencent par une voyelle.
+        var users = ["joe", "lea", "bob", "ann"];
+        var voyelles = "aeiouy";
+
+        function firstletterVowels(noms) {
+            for (var x = 0; x < noms.length; x++) {
+                utilisateur = noms[x];
+                firstLetter = utilisateur.charAt(0);
+                for (var i = 0; i < voyelles.length; i++) {
+                    if (firstLetter == voyelles[i]) {
+                        console.log(utilisateur);
+                    }
+                }
+            }
+        }
+        firstletterVowels(users);
+        // TODO : liste des prenoms qui commencent par une consonne.
+        var users = ["joe", "lea", "bob", "ann"];
+        var voyelles = "aeiouy";
+
+        function firstlettercons(noms) {
+            for (var x = 0; x < noms.length; x++) {
+                utilisateur = noms[x];
+                firstLetter = utilisateur.charAt(0);
+                for (var i = 0; i < voyelles.length; i++) {
+                    if (firstLetter !== voyelles[i]) {
+                        console.log('Consonne trouver', utilisateur);
+                        break;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        firstlettercons(users);
+
+
+        var notes = [10, 12, 13, 4, 8];
+
+        // TODO : calcul de la somme
+
+        function sommeNotes(notes) {
+            for (var i = 0, somme = 0; i < notes.length; somme += notes[i++]) {}
+            return somme;
+        }
+        console.log('somme des notes', sommeNotes(notes));
+
+        // TODO : calcul de la moyenne
+        function moyenneNotes() {
+            var moyenne = (sommeNotes(notes) / notes.length);
+            return moyenne;
+        }
+        console.log('moyenne', moyenneNotes(notes));
+
+        var nouvelleNote = 12;
+
+        // TODO : ajouter la note à liste
+        notes.push(nouvelleNote);
+        console.log(notes);
+
+        // TODO : calcul de la nouvelle somme
+        sommeNotes(notes); // 59
+        console.log('somme des notes', sommeNotes(notes);
+
+                // TODO : calcul de la nouvelle moyenne
+                moyenneNotes(notes) // 9,833
+                console.log('moyenne', moyenneNotes(notes));
+
+                // TODO : trouvez la note la plus haute
+                console.log('meilleure note', Math.max.apply(null, notes));
+
+                // TODO : trouvez la note la plus mauvaise
+                console.log('plus mauvaise note', Math.min.apply(null, notes));
+
+
+                // TODO : passage en fonctions
+                function calculSomme(tableauDeNotes) {
+                    var somme = 0;
+                    for (var i = 0; i < notes.length; i++) {
+                        somme += notes[i];
+                    }
+                    return somme;
+                }
+                calculSomme(notes);
+                function calculMoyenne(tableauDeNotes) {
+                    var moyenne;
+                    moyenne = somme / notes.length;
+
+                    return moyenne;
+                }
+    </script>
+</body>
+
+</html>

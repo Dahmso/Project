@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Voyelle</title>
+</head>
+
+<body>
+    <script>
+        var voyelles = "aeiouy";
+
+        // la fonction reçoit un caractère en paramètre et doit renvoyer true si le texte contient une voyelle, false sinon
+
+        function estUneVoyelle(lettre) {
+          var l = lettre;
+            for (var i = 0; i < voyelles.length; i++) {
+                if(l == null){
+                  return false;
+                } else if (voyelles[i] == l.toLowerCase()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        estUneVoyelle("A");
+
+        console.log("estUneVoyelle('f') :", estUneVoyelle('f')); // false
+        console.log("estUneVoyelle('a') :", estUneVoyelle('a')); // true
+        console.log("estUneVoyelle() :", estUneVoyelle()); // false
+
+        // la fonction reçoit un texte en paramètre et doit renvoyer ce texte sans ses voyelles
+        function contientUneVoyelle(texte) {
+            for (var i = 0; i < texte.length; i++) {
+                var lettre = texte[i];
+                var lettreLower = lettre.toLowerCase();
+                if (voyelles.indexOf(lettreLower) >= 0) {
+                    return true;
+                    console.log(indexOf);
+                }
+            }
+            return false;
+        }
+        contientUneVoyelle("lol")
+
+        // la fonction reçoit un texte en paramètre et doit renvoyer ce texte sans ses voyelles
+        function compteVoyelle(texte) {
+            var compteur = 0;
+            var texteToLowerCase = texte.toLowerCase();
+            for (var i = 0; i < texte.length; i++) {
+                var lettre = texte[i];
+                for (var x = 0; x < voyelles.length; x++) {
+                    if (lettre == voyelles[x]) {
+                        compteur++;
+                    }
+                }
+            }
+            console.log(compteur + " voyelle(s) trouvée(s)");
+            return compteur;
+        }
+        compteVoyelle("bonjour");
+        // la fonction reçoit un texte en paramètre et doit renvoyer ce texte sans ses voyelles
+        function enleveVoyelle( texteAModifier ){
+          resultat = texteAModifier.replace(/[aeiouy]/gi, '');
+          return resultat;
+        }
+
+        var resultat = enleveVoyelle("Coucou"); // doit renvoyer Cc
+
+        console.log('resultat :', resultat);
+    </script>
+</body>
+
+</html>

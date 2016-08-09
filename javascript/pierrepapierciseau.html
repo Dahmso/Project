@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pierre Papier Ciseau</title>
+</head>
+
+<body>
+    <script>
+        var botNumber = Math.random();
+        var user = prompt("Pierre (1), Papier (2), Ciseaux (3), Puit (4) : ");
+        var userNumber = parseInt(user);
+        console.log(botNumber);
+        console.log(userNumber);
+        var score = 0;
+        // Pierre 0-0.25, Papier 0.25-0.50, Ciseaux 0,50-0,75, Puit 0,75-1;
+            if ((userNumber < 1) || (userNumber > 4)) {
+                alert("Vous devez choisir un entier entre 1 et 4.");
+                var user;
+            }
+            if ((botNumber <= 0.25) && (botNumber >= 0)) { // Pierre
+                if (userNumber == 1) {
+                    alert("Pierre, il y a une égalité.");
+                } else if ((userNumber == 2) || (userNumber == 4)) {
+                    alert("Pierre, vous avez gagné");
+                } else {
+                    alert("Pierre, vous avez perdu");
+                    score--;
+                }
+            }
+            if ((botNumber <= 0.50) && (botNumber >= 0.25)) { // Papier
+                if (userNumber == 2) {
+                    alert("Papier, il y a une égalité.");
+                } else if (userNumber == 3) {
+                    alert("Papier, vous avez gagné");
+                } else {
+                    alert("Papier, vous avez perdu");
+                    score--;
+                }
+            }
+            if ((botNumber <= 0.75) && (botNumber >= 0.50)) { // Ciseaux
+                if (userNumber == 3) {
+                    alert("Ciseaux, il y a une égalité.");
+                } else if ((userNumber == 1) || (userNumber == 4)) {
+                    alert("Ciseaux, Vous avez gagné");
+                } else {
+                    alert("Ciseaux, vous avez perdu");
+                    score--;
+                }
+            }
+            if ((botNumber <= 1) && (botNumber >= 0.75)) { // Puit
+                if (userNumber == 4) {
+                    alert("Puit, il y a une égalité.");
+                } else if (userNumber == 2) {
+                    alert("Puit, vous avez gagné");
+                } else {
+                    alert("Puit, vous avez perdu");
+                    score--;
+                }
+            }
+    </script>
+</body>
+
+</html>
