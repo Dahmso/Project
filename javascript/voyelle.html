@@ -13,10 +13,10 @@
         // la fonction reçoit un caractère en paramètre et doit renvoyer true si le texte contient une voyelle, false sinon
 
         function estUneVoyelle(lettre) {
-          var l = lettre;
+            var l = lettre;
             for (var i = 0; i < voyelles.length; i++) {
-                if(l == null){
-                  return false;
+                if (l == null) {
+                    return false;
                 } else if (voyelles[i] == l.toLowerCase()) {
                     return true;
                 } else {
@@ -61,9 +61,9 @@
         }
         compteVoyelle("bonjour");
         // la fonction reçoit un texte en paramètre et doit renvoyer ce texte sans ses voyelles
-        function enleveVoyelle( texteAModifier ){
-          resultat = texteAModifier.replace(/[aeiouy]/gi, '');
-          return resultat;
+        function enleveVoyelle(texteAModifier) {
+            resultat = texteAModifier.replace(/[aeiouy]/gi, '');
+            return resultat;
         }
 
         var resultat = enleveVoyelle("Coucou"); // doit renvoyer Cc

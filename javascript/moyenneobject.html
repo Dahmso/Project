@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Moyenne Object</title>
+</head>
+
+<body>
+    <script>
+        var eleves = [{
+            prenom: 'Bob',
+            nom: 'Dupond',
+            note: 12
+        }, {
+            prenom: 'Lea',
+            nom: 'Petit',
+            note: 10
+        }, {
+            prenom: 'Joe',
+            nom: 'Martin',
+            note: 15
+        }];
+
+        function calculMoyenneClasse(listeEleves) {
+          var somme = 0;
+          var moyenne = 0;
+          for (var i = 0; i < listeEleves.length ; i++) {
+            somme += eleves[i].note;
+          }
+          var moyenne = somme / listeEleves.length;
+          return moyenne.toFixed(2);
+        }
+        calculMoyenneClasse(eleves)
+
+        console.log(calculMoyenneClasse(eleves)); // renvoie 12.33 (2 chiffres après la virgule)
+    </script>
+
+</body>
+
+</html>

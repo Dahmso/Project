@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Seconde en minute</title>
+</head>
+
+<body>
+    <script>
+        var time = parseInt(prompt("Quel nombre(en secondes) voulez vous convertir en minute :"));
+
+        function convertIntoMin(param) {
+            var seconde = param % 60;
+            var min = (param - seconde) / 60;
+            if (isNaN(param)) {
+                alert("Ce n'est pas un nombre");
+            } else {
+                console.log(min + "m " + seconde + "s");
+            }
+        }
+        convertIntoMin(time);
+
+        var time2 = parseInt(prompt("Quel nombre(en secondes) voulez vous convertir en heure :"));
+
+        function convertIntoHour(param) {
+            var seconde = param % 60;
+            var verif = (param - seconde) / 60;
+            if (verif >= 60) {
+                var min = verif % 60;
+                var hour = (verif - min) / 60;
+            } else if (verif < 60) {
+                var min = (param - seconde) / 60;
+                var hour = 0;
+            }
+            console.log(hour + "h " + min + "m " + seconde + "s");
+        }
+
+        convertIntoHour(time2);
+    </script>
+
+</body>
+
+</html>

@@ -14,3 +14,16 @@
   for (var i = userResponse.length - 1; i >= 0; i--)
 // Crée un espace en JavaScript / les \ sont la pour intégrer les doubles guillemets dans un string
 "Quoth the raven:\t\"Nevermore!\"";
+// voir si le mot contient ce champ de caractère quelque soit la casse.
+mails.includes("gmail".toLowerCase());
+// push dans un tableau en partant du premier index.
+myArray.shift(); myArray.pop(); my.Array.unshift();
+// transforme une chaine de caractere en tableau, chaque espace dans la chaine defini un index dans le tableau crée
+var cousinsString = 'Pauline Guillaume Clarisse',
+    cousinsArray = cousinsString.split(' ');
+alert(cousinsString);
+alert(cousinsArray);
+// réunit tous les éléments d'un tableau dans une chaine de caractères.
+var var3 = a.join(" + "); // on affecte "Vent + Pluie + Feu" à var3
+var var4 = a.join("");    // on affecte "VentPluieFeu" à var4
+//

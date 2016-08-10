@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Object : Mail & password</title>
+</head>
+
+<body>
+    <script>
+    var userMail = prompt("Entrez votre Email :", "lol@gmail.com");
+    var userMotdepasse = prompt("Entrez votre Mot de passe :", "azerty69");
+        function ConvertObject(identifiant,pw) {
+          this.Mail = identifiant;
+          this.Motdepasse = pw;
+          return;
+        }
+
+        var compte = new ConvertObject(userMail, userMotdepasse);
+        var compte2 = new ConvertObject("lyon@gmail.com", "69123456");
+          console.log(compte);
+          console.log(compte2);
+
+    </script>
+</body>
+
+</html>
