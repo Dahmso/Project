@@ -26,12 +26,16 @@
         function convertIntoHour(param) {
             var seconde = param % 60;
             var verif = (param - seconde) / 60;
-            if (verif >= 60) {
-                var min = verif % 60;
-                var hour = (verif - min) / 60;
-            } else if (verif < 60) {
-                var min = (param - seconde) / 60;
-                var hour = 0;
+            if (isNaN(param)) {
+                alert("Ce n'est pas un nombre");
+            } else {
+                if (verif >= 60) {
+                    var min = verif % 60;
+                    var hour = (verif - min) / 60;
+                } else if (verif < 60) {
+                    var min = (param - seconde) / 60;
+                    var hour = 0;
+                }
             }
             console.log(hour + "h " + min + "m " + seconde + "s");
         }

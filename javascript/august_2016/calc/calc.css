@@ -1,0 +1,107 @@
+#calculatrice {
+    width: 500px;
+    height: 510px;
+    background-color: #6f6f6f;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    border: 3px solid #595959;
+
+}
+#screen input {
+    width: 75%;
+    padding-bottom: 20px;
+    margin-top: 40px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 150%;
+    outline: none;
+    border: 3px solid #595959;
+    text-align: right;
+    padding-top: 20px;
+    height: 30px;
+    font-weight: bold;
+}
+#screen {
+    text-align: center;
+}
+#bottomside {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;   
+}
+#bottomside div {
+    display: inline-block;
+}
+button {
+    font-size: 150%;
+    padding: 30px;
+    width: 90px;
+    height: 70px;
+    margin: 10px;
+    line-height: 0px;
+    font-family: sans-serif;
+    outline: none;
+    color: white;
+    background-color: #303030;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0s ease-in-out;
+    box-shadow: 0px 0px #bfbfbf;
+}
+button:hover {
+    background-color: #4d4d4d;
+}
+button:active {
+    -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px #fff;
+}
+.floatright {
+  float: right;
+  width: 130px;
+}
+.floatleft  {
+  float: left;
+  width: 370px;
+}
+.clear button {
+  background-color: #cc0000;
+}
+.clear button:active {
+    -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px #fff;
+}
+.clear button:hover {
+    background-color: #e60000;
+}
+.floatright button {
+  background-color: #e6e6e6;
+  color: black;
+  font-weight: bold;
+}
+.floatright button:active {
+    -webkit-box-shadow: 0 0 5px 2px black;
+    -moz-box-shadow: 0 0 5px 2px black;
+    box-shadow: 0 0 5px 2px black;
+}
+.floatright button:hover {
+    background-color: #f2f2f2;
+}
+.egale button {
+  background-color: #008000;
+  color: white;
+}
+.egale button:active {
+    -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px #fff;
+}
+.egale button:hover {
+    background-color: #00cc00;
+}

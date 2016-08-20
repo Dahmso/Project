@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="calc.css" media="screen" title="no title" charset="utf-8">
+    <title>Calculatrice Javascript</title>
+</head>
+
+<body>
+    <div id="calculatrice">
+        <div id="topside">
+            <div id="screen">
+                <input id="screencalc" type="text">
+            </div>
+        </div>
+        <div id="bottomside">
+            <div class="floatleft">
+                <div class="un">
+                    <button id="buttonNum" onclick="ajoutNombre(1)" type="button">1</button>
+                </div>
+                <div class="deux">
+                    <button id="buttonNum" onclick="ajoutNombre(2)" type="button">2</button>
+                </div>
+                <div class="trois">
+                    <button id="buttonNum" onclick="ajoutNombre(3)" type="button">3</button>
+                </div>
+                <div class="quatre">
+                    <button id="buttonNum" onclick="ajoutNombre(4)" type="button">4</button>
+                </div>
+                <div class="cinq">
+                    <button id="buttonNum" onclick="ajoutNombre(5)" type="button">5</button>
+                </div>
+                <div class="six">
+                    <button id="buttonNum" onclick="ajoutNombre(6)" type="button">6</button>
+                </div>
+                <div class="sept">
+                    <button id="buttonNum" onclick="ajoutNombre(7)" type="button">7</button>
+                </div>
+                <div class="huit">
+                    <button id="buttonNum" onclick="ajoutNombre(8)" type="button">8</button>
+                </div>
+                <div class="neuf">
+                    <button id="buttonNum" onclick="ajoutNombre(9)" type="button">9</button>
+                </div>
+                <div class="zero">
+                    <button id="buttonNum" onclick="ajoutNombre(0)" type="button">0</button>
+                </div>
+                <div class="egale">
+                    <button onclick="calcul(resultat)" type="button">=</button>
+                </div>
+
+                <div class="clear">
+                    <button onclick="ajoutNombre(null)" type="button">c</button>
+                </div>
+            </div>
+            <div class="floatright">
+                <div class="addition">
+                    <button class="operateur" onclick="ajoutNombre('+')" type="button">+</button>
+                </div>
+                <div class="soustraction">
+                    <button class="operateur" onclick="ajoutNombre('-')" type="button">-</button>
+                </div>
+                <div class="multiplication">
+                    <button class="operateur" onclick="ajoutNombre('*')" type="button">*</button>
+                </div>
+                <div class="division">
+                    <button class="operateur" onclick="ajoutNombre('/')" type="button" >/</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var resultat;
+
+        function ajoutNombre(val) {
+            if (val === null) {
+                var input = document.getElementById("screencalc");
+                input.value = "";
+                resultat = input.value;
+            } else {
+                var buttonValue = val;
+                // console.log(buttonValue);
+                var input = document.getElementById("screencalc");
+                input.value += buttonValue;
+                resultat = input.value;
+                // console.log(resultat);
+            }
+            return resultat;
+        }
+        function calcul(donnee) {
+            var operator = ["+", "-", "*", "/"];
+            if ((donnee == "") || (donnee == null)) {
+                return donnee = "";
+            } else {
+            var calcul = eval(donnee);
+            var input = document.getElementById("screencalc");
+            input.value = calcul;
+            }
+            return calcul;
+        }
+    </script>
+</body>
+
+</html>

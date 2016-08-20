@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="calculmental.css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Calcul mental</title>
+</head>
+
+<body>
+    <div id="tableau">
+        <div id="titre">
+            <h1>// Calcul mental //</h1>
+        </div>
+        <div id="questionnaire">
+            <div id="randomize">
+                <h3 class="clickme">Click me !</h3>
+                <a href="#" onclick="hideContent()"><img id="questionmark" src="questionmark.png"></a>
+                <h3 class="clickme1">Click me !</h3>
+            </div>
+            <div id="inputpopup">
+                <input id="userinput" type="text" name="name" value="" />
+                <button id="userbutton" type="button" name "button" onclick="compareUserResult()">Valider</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var result;
+        var showQuestion;
+        var calcul;
+        var score = 0;
+
+        function hideContent() {
+            var stopAnimation = document.querySelector("#questionmark");
+            stopAnimation.style.animation = "paused";
+            var textToHide = document.querySelector(".clickme");
+            var textToHide2 = document.querySelector(".clickme1");
+            var blocToHide = document.querySelector("#randomize");
+            console.log(textToHide);
+            setInterval(function() {
+                textToHide.innerHTML = "<h3>" + "Ready" + "</h3>";
+            }, 1000);
+            setInterval(function() {
+                textToHide2.innerHTML = "<h3>" + "GO ! ! !" + "</h3>";
+            }, 3000);
+            setInterval(function() {
+                textToHide2.innerHTML = "<h3>" + "GO ! ! !" + "</h3>";
+            }, 4000);
+            setTimeout(function() {
+                showCalc();
+            }, 5000);
+        }
+
+        function showCalc() {
+            var operator = ["+", "-", "/", "*"];
+            var randomOperator = operator[Math.floor((Math.random() * operator.length))];
+            var randomNumber1 = Math.floor((Math.random() * 10));
+            var randomNumber2 = Math.floor((Math.random() * 10));
+            calcul = (randomNumber1 + " " + randomOperator + " " + randomNumber2);
+            result = eval(randomNumber1 + randomOperator + randomNumber2);
+            showQuestion = document.querySelector("#randomize");
+            var userInput = document.querySelector("#userinput");
+            var userButton = document.querySelector("#userbutton");
+            showQuestion.style.fontSize = "200%";
+            showQuestion.innerHTML = "<h3>" + "Combien font : " + calcul + " ?" + "</h3>";
+            setTimeout(function() {
+                userInput.style.display = "inline-block";
+                userButton.style.display = "inline-block";
+            }, 2000);
+            console.log(result);
+          }
+
+        function compareUserResult() {
+            var userInput = document.querySelector("#userinput");
+            if (userInput.value == result) {
+                showQuestion.innerHTML = "<h3>" + "Bravo !" + "</h3>";
+                userInput.value = "";
+                score++;
+                    setTimeout(function() {
+                        showCalc();
+                    }, 2000);
+            } else {
+                showQuestion.innerHTML = "<h3>" + "Perdu !" + "</h3>";
+                userInput.value = "";
+                score--;
+                setTimeout(function() {
+                    showQuestion.innerHTML = "<h3>" + "Combien font : " + calcul + " ?" + "</h3>";
+                }, 2000);
+            }
+        }
+        /*
+        function hardCalc() {
+            var operator = ["+", "-", "/", "*"];
+            var operator2 = ["+", "-", "*"];
+            var randomOperator = operator[Math.floor((Math.random() * operator.length))];
+            var randomOperator2 = operator2[Math.floor((Math.random() * operator2.length))];
+            var userInput = document.querySelector("#userinput");
+            var randomNumber1 = Math.floor((Math.random() * 10));
+            var randomNumber2 = Math.floor((Math.random() * 10));
+            var randomNumber3 = Math.floor((Math.random() * 10));
+            calcul = (randomNumber1 + " " + randomOperator + " " + randomNumber2 + " " + randomOperator2 + " " + randomNumber3);
+            result = eval(randomNumber1 + randomOperator + randomNumber2 + randomOperator2 + randomNumber3);
+            console.log(result);
+            showQuestion.innerHTML = "<h3>" + "Combien font : " + calcul + " ?" + "</h3>";
+            if (userInput.value == result) {
+                showQuestion.innerHTML = "<h3>" + "Bravo Einstein." + "</h3>";
+
+            } else {
+            showQuestion.innerHTML = "<h3>" + "Perdu Einstein." + "</h3>";
+            score = 0;
+           }
+        }*/
+    </script>
+</body>
+
+</html>

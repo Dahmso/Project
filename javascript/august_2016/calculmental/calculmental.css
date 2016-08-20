@@ -1,0 +1,106 @@
+#tableau {
+  text-align: center;
+  margin-left: 8%;
+  margin-right: 8%;
+  background-color: #008000;
+  height: 650px;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+#titre {
+  padding-top:10px;
+  color: white;
+  font-family: 'Josefin Slab', serif;
+  font-size: 200%;
+  font-weight: bolder;
+}
+#questionnaire {
+  width: 100%;
+  display: inline-block;
+  font-family: 'Josefin Slab', serif;
+  color: white;
+  margin-top: 70px;
+}
+#questionnaire img {
+  transition: grow 1s ease-in-out;
+  -webkit-animation: grow 2s ease  infinite alternate;
+  animation: grow 2s ease  infinite alternate;
+}
+@keyframes grow {
+  15%
+  {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  30%
+  {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50%
+  {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  65%
+  {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  80%
+  {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  100%
+  {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+}
+#randomize h3, #randomize a {
+  display: inline-block;
+}
+#inputpopup {
+  margin-top: 40px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#inputpopup input {
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  color: white;
+  font-family: 'Josefin Slab', serif;
+  font-size: 200%;
+  text-align: center;
+  margin-left: 120px;
+  margin-right: 10px;
+  display: none;
+}
+#inputpopup button {
+  background-color: white;
+  border: none;
+  padding: 20px;
+  color:  green;
+  margin-left: 20px;
+  transition: all 0.3s ease-in-out;
+  font-family: Verdana;
+  font-weight: bolder;
+  display: none;
+}
+#inputpopup button:focus {
+  outline: none;
+}
+#inputpopup button:hover {
+  -webkit-box-shadow: 0 0 5px 2px #4d2600;
+  -moz-box-shadow: 0 0 5px 2px #4d2600;
+  box-shadow: 0 0 5px 2px #4d2600;
+}
+#inputpopup button:active {
+  transform: scale(0.8);
+}

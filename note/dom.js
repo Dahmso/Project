@@ -21,7 +21,7 @@ var link = document.getElementById('myLink');
 
     link.setAttribute('href', 'http://www.siteduzero.com'); // On édite l'attribut « href »
 
-    // DEUXIEME METHODE 
+    // DEUXIEME METHODE
 
     var link = document.getElementById('myLink');
         var href = link.href;
@@ -54,7 +54,7 @@ document.getElementById('myColoredDiv').className = 'blue';
 
 	alert(classesNew);
 
-	// classList est une propriété qui permet de consulter les classes sous forme de tableau 
+	// classList est une propriété qui permet de consulter les classes sous forme de tableau
 		var div = document.querySelector('div');
 
 		// Ajoute une nouvelle classe
@@ -101,7 +101,7 @@ var text = '';
 	element.innerHTML = text; // Une fois la concaténation terminée, on ajoute le tout à « element » via innerHTML
 
 
-/* Le fonctionnement de textContent est le même qu'innerHTML excepté le fait que seul le texte est récupéré, 
+/* Le fonctionnement de textContent est le même qu'innerHTML excepté le fait que seul le texte est récupéré,
 et non les balises. C'est pratique pour récupérer du contenu sans le balisage, petit exemple :*/
 /*<body>
     <div id="myDiv">
@@ -122,15 +122,15 @@ et non les balises. C'est pratique pour récupérer du contenu sans le balisage,
 
 /*
 Le DOM va servir à accéder aux éléments HTML présents dans un document afin de les modifier et d'interagir avec eux.
-L'objet window est un objet global qui représente la fenêtre du navigateur. document, quant à lui, est un sous-objet 
+L'objet window est un objet global qui représente la fenêtre du navigateur. document, quant à lui, est un sous-objet
 de window et représente la page Web. C'est grâce à lui que l'on va pouvoir accéder aux éléments HTML de la page Web.
 Les éléments de la page sont structurés comme un arbre généalogique, avec l'élément <html> comme élément fondateur.
-Différentes méthodes, comme getElementById(), getElementsByTagName(), querySelector() ou querySelectorAll(), sont 
+Différentes méthodes, comme getElementById(), getElementsByTagName(), querySelector() ou querySelectorAll(), sont
 disponibles pour accéder aux éléments.
-Les attributs peuvent tous être modifiés grâce à setAttribute(). Certains éléments possèdent des propriétés qui 
+Les attributs peuvent tous être modifiés grâce à setAttribute(). Certains éléments possèdent des propriétés qui
 permettent de modifier ces attributs.
 La propriété innerHTML permet de récupérer ou de définir le code HTML présent à l'intérieur d'un élément.
-De leur côté, textContent et innerText ne sont capables que de définir ou récupérer du texte brut, sans aucunes 
+De leur côté, textContent et innerText ne sont capables que de définir ou récupérer du texte brut, sans aucunes
 balises HTML.
 */
 
@@ -145,19 +145,19 @@ balises HTML.
     <p id="myP">Ceci est un paragraphe !</p>
 </blockquote>
 
-Admettons qu'on doive accéder à myP, et que pour une autre raison on doive accéder à l'élément <blockquote>, 
+Admettons qu'on doive accéder à myP, et que pour une autre raison on doive accéder à l'élément <blockquote>,
 qui est le parent de myP. Il suffit d'accéder à myP puis à son parent, avec parentNode*/
 var paragraph = document.getElementById('myP');
 var blockquote = paragraph.parentNode;
 
 
-/* Concrètement, qu'est-ce qui change par rapport au DOM-0 ? Alors tout d'abord nous n'utilisons 
-plus une propriété mais une méthode nommée addEventListener(), et qui prend trois paramètres 
+/* Concrètement, qu'est-ce qui change par rapport au DOM-0 ? Alors tout d'abord nous n'utilisons
+plus une propriété mais une méthode nommée addEventListener(), et qui prend trois paramètres
 (bien que nous n'en ayons spécifié que deux) :
 
 - Le nom de l'événement (sans les lettres « on ») ;
 - La fonction à exécuter ;
-- Un booléen optionnel pour spécifier si l'on souhaite utiliser la phase de capture ou bien celle de bouillonnement. 
+- Un booléen optionnel pour spécifier si l'on souhaite utiliser la phase de capture ou bien celle de bouillonnement.
 Nous expliquerons ce concept un peu plus tard dans ce chapitre.*/
 var element = document.getElementById('clickme');
 
@@ -168,11 +168,11 @@ var myFunction = function() {
 element.addEventListener('click', myFunction);
 
 
-/*En testant cet exemple, vous avez sûrement remarqué que la propriété target renvoyait toujours l'élément déclencheur de 
-l'événement, or nous souhaitons obtenir l'élément sur lequel a été appliqué l'événement. Autrement dit, on veut connaître 
+/*En testant cet exemple, vous avez sûrement remarqué que la propriété target renvoyait toujours l'élément déclencheur de
+l'événement, or nous souhaitons obtenir l'élément sur lequel a été appliqué l'événement. Autrement dit, on veut connaître
 l'élément à l'origine de cet événement, et non pas ses enfants.
 
-La solution est simple : utiliser la propriété currentTarget au lieu de target. Essayez donc par vous-mêmes 
+La solution est simple : utiliser la propriété currentTarget au lieu de target. Essayez donc par vous-mêmes
 après modification de cette seule ligne, l'ID affiché ne changera jamais :*/
 
 // Récupérer l'élément de l'événement actuellement déclenché
@@ -194,32 +194,32 @@ event.preventDefault();
 
 /* --------------- LISTE DES EVENEMENTS
 
-onabort		: 	Se déclenche lorqu'une image n'arrive pas à être complètement chargée 
-				ou si son chargement est interrompu par l'utilisateur 
+onabort		: 	Se déclenche lorqu'une image n'arrive pas à être complètement chargée
+				ou si son chargement est interrompu par l'utilisateur
 				Evènement s'appliquant uniquement à la balise <img>
 onblur		: 	Se déclenche lorque l'élément perd le focus
 onchange	: 	Se produit lorqu'une modification a lieu sur un champ de saisie
 onclick		: 	Se déclenche lorsqu'un clic est fait sur l'élément
 ondblclick	: 	Se déclenche lorsqu'un double clic est fait sur l'élément
-ondragdrop	: 	Se déclenche lorque l'utilisateur essaie de glisser déplacer un élément dans la fenêtre. 
+ondragdrop	: 	Se déclenche lorque l'utilisateur essaie de glisser déplacer un élément dans la fenêtre.
 				Cet évènement s'applique à l'objet "window" : window.ondragdrop
-onerror		: 	Se déclenche lorsqu'une erreur est rencontrée au chargement de la page. 
+onerror		: 	Se déclenche lorsqu'une erreur est rencontrée au chargement de la page.
 				Cet évènement s'applique à l'objet "window" : window.onerror
 onfocus		: 	Se déclenche lorsque l'élément à le focus
-onkeydown	: 
+onkeydown	:
 onkeypress	:
-onkeyup		: 	Ces trois évènements constituent ensemble la saisie d'une touche du clavier : 
-				"onkeydown" correspond à l'action d'appuyer sur une touche 
-				"onkeypress" correspond à l'action de maintenir enfoncer la touche 
+onkeyup		: 	Ces trois évènements constituent ensemble la saisie d'une touche du clavier :
+				"onkeydown" correspond à l'action d'appuyer sur une touche
+				"onkeypress" correspond à l'action de maintenir enfoncer la touche
 				"onkeyup" correspond à l'action de relacher la touche
 onload		: 	Cet évènement se déclenche lorsque le document a terminé son chargement complet
-onmouseover	: 
+onmouseover	:
 onmouseout	: 	Ces évènement se déclenchent losrque le curseur de la souris survole l'élément (onmouseover) ou bien quitte l'élément (onmouseout)
 onmousemove	: 	Se déclenche losrque le curseur de la souris se déplace sur le document html
-onmousedown	: 
+onmousedown	:
 onmouseup	: 	Ces évènement se déclenchent losrqu'un bouton de la souris est appuyé (onmousedown) ou bien relaché (onmouseup)
 onreset		: 	Permet de réinitialiser les champs d'un formulaire
-onresize	: 	Se déclenche lorsque l'utilisateur redimensionne la fenêtre du navigateur. 
+onresize	: 	Se déclenche lorsque l'utilisateur redimensionne la fenêtre du navigateur.
 				Cet évènement s'applique à l'objet "window" : window.onresize
 onselect	: 	Se déclenche lorque l'utilisateur sélectionne du texte sur la page (si l'évènement est associé au <body> ou dans une zone de texte
 onsubmit	: 	Permet de soumettre le formulaire
@@ -230,10 +230,10 @@ onunload	: 	Se déclenche lorsque le navigateur va quitter la page courante
 
 
 
-// ---------------- AJAX -------------- 
+// ---------------- AJAX --------------
 
 
-// Creation de l'instance XHR 
+// Creation de l'instance XHR
 // - 0 : L'objet XHR a été créé, mais pas encore initialisé (la méthode open n'a pas encore été appelée)
 var xhr = new XMLHttpRequest();
 // URL de destinattion
@@ -247,10 +247,10 @@ xhr.open("POST", url, true);
 
 	sMethod : la méthode de transfert : GET ou POST;
 	sUrl : la page qui donnera suite à la requête. Ça peut être une page dynamique (PHP, CFM, ASP) ou une page statique (TXT, XML...);
-	bAsync : définit si le mode de transfert est asynchrone ou non (synchrone). Dans ce cas, mettez true . 
+	bAsync : définit si le mode de transfert est asynchrone ou non (synchrone). Dans ce cas, mettez true .
 	Ce paramètre est optionnel et vaut true par défaut, mais il est courant de le définir quand même (je le fais par habitude).
 
-//Si vous utilisez la méthode POST, vous devez absolument changer le type MIME de la requête avec la méthode setRequestHeader , 
+//Si vous utilisez la méthode POST, vous devez absolument changer le type MIME de la requête avec la méthode setRequestHeader ,
 sinon le serveur ignorera la requête :
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -271,7 +271,7 @@ xhr.onreadystatechange = function() {// Appel de la fonction au changement d'ét
 			document.getElementById("loader").style.display = "inline";
 		}
 }
-// Envoi des parametre 
+// Envoi des parametre
 xhr.send(params);
 
 
@@ -280,27 +280,27 @@ xhr.send(params);
 
 // - Manipulation du parametre 'this'
 
-	var maFonction = function() { 
-		alert("attribut: " + this.attribut); 
-	}; 
-	
-	maFonction(); // Affiche la valeur undefined car this.attribut ne peut être résolu 
-	
-	// Création de l'objet obj1 et affectation de maFonction 
-	var obj1 = { 
-		attribut: "valeur1", 
-		methode: maFonction 
-	} 
-	
-	obj1.methode(); // Affiche la valeur de attribut, à savoir valeur1 
-	
-	// Création de l'objet obj2 et affectation de maFonction 
-	var obj2 = { 
-		attribut: "valeur2", 
-		methode: maFonction 
-	} 
-	
-	obj2.methode(); // Affiche la valeur de attribut2, à savoir valeur2 
+	var maFonction = function() {
+		alert("attribut: " + this.attribut);
+	};
+
+	maFonction(); // Affiche la valeur undefined car this.attribut ne peut être résolu
+
+	// Création de l'objet obj1 et affectation de maFonction
+	var obj1 = {
+		attribut: "valeur1",
+		methode: maFonction
+	}
+
+	obj1.methode(); // Affiche la valeur de attribut, à savoir valeur1
+
+	// Création de l'objet obj2 et affectation de maFonction
+	var obj2 = {
+		attribut: "valeur2",
+		methode: maFonction
+	}
+
+	obj2.methode(); // Affiche la valeur de attribut2, à savoir valeur2
 
 
 // ----------------------------------------------------------//
@@ -310,15 +310,15 @@ xhr.send(params);
 // - Creation d'objet en JS
 
 
-	var obj = { 
-		attribut: "valeur", 
-		methode: function(parametre1, parametre2) { 
-			alert("parametres: " + parametre1 + ", " + parametre2); 
-		} 
-	} 
-	
-	// Affichage de la valeur de attribut de obj 
-	alert("Valeur de attribut: " + obj.attribut); 
-	
-	// Exécution de la méthode methode de obj 
-	obj.methode("valeur1", "valeur2"); 
+	var obj = {
+		attribut: "valeur",
+		methode: function(parametre1, parametre2) {
+			alert("parametres: " + parametre1 + ", " + parametre2);
+		}
+	}
+
+	// Affichage de la valeur de attribut de obj
+	alert("Valeur de attribut: " + obj.attribut);
+
+	// Exécution de la méthode methode de obj
+	obj.methode("valeur1", "valeur2");

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="henri5.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+    <title>Question / Réponse</title>
+</head>
+
+<body>
+    <div id="questionnaire">
+        <div id="titre">
+            <h1> <span id="red">Question</span> / <span id="green">Reponse</span> </h1>
+        </div>
+        <div id="blocquestion">
+            <div id="questionchamp">
+                <h3>Question... <span id="question">?</span></h3>
+            </div>
+        </div>
+        <div id="blocreponse">
+            <input id="userresponse" type="text">
+            <button id="button" onclick="dernierMot()">Dernier mot</button>
+        </div>
+    </div>
+    <script>
+        var liste = [{
+            questionListe: "De quelle couleur est le cheval blanc d'Henri IV ?",
+            reponseListe: "blanc"
+        }, {
+            questionListe: "Combien y'a t-il de 7 nains ?",
+            reponseListe: "sept",
+        }];
+        var question;
+        var reponse;
+        var nombre = 0;
+
+        function showQuestion(param) {
+        //  console.log(liste[param].questionListe);
+            var giveQuestion = document.getElementById("questionchamp");
+            question = liste[param].questionListe;
+            reponse = liste[param].reponseListe;
+            giveQuestion.innerHTML = '<h3>' + question + '</h3>';
+        }
+
+        function dernierMot() {
+            showQuestion(nombre);
+            var userInput = document.getElementById("userresponse").value;
+            var userInputAnyCase = userInput.toLowerCase();
+            var giveQuestion = document.getElementById("questionchamp");
+            if ((userInputAnyCase === reponse) && (nombre < liste.length)){
+                giveQuestion.innerHTML = '<h3>' + "Bravo !" + '</h3>';
+                nombre++;
+                Input = document.getElementById("userresponse");
+                Input.value = "";
+                setTimeout(function() {showQuestion(nombre)}, 3000);
+            } else {
+                giveQuestion.innerHTML = '<h3>' + "Perdu !" + '</h3>';
+                Input = document.getElementById("userresponse");
+                Input.value = "";
+                setTimeout(function() {
+                    giveQuestion.innerHTML = '<h3>' + question + '</h3>'
+                }, 3000);
+            }
+        }
+        setTimeout(function() {
+            showQuestion(nombre);
+        }, 3000);
+    </script>
+</body>
+
+</html>

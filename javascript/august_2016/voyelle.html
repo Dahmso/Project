@@ -65,6 +65,17 @@
             resultat = texteAModifier.replace(/[aeiouy]/gi, '');
             return resultat;
         }
+        // Ou :
+        function enleveVoyelle(texteAModifier) {
+            var mot = texteAModifier;
+            for (var i = 0; i < texteAModifier.length; i++) {
+                var lettre = texteAModifier[i];
+                if (voyelles.indexOf(lettre) > -1) {
+                    mot = mot.replace(lettre, '');
+                }
+            }
+            return mot;
+        }
 
         var resultat = enleveVoyelle("Coucou"); // doit renvoyer Cc
 
