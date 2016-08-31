@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="memo.css" media="screen" title="no title" charset="utf-8">
+    <title>Memo</title>
+</head>
+
+<body>
+    <div id="board">
+        <div id="memo">
+            <div id="title">
+                <h1>Le Memo</h1>
+            </div>
+            <div class="card" id="blueCard" onclick="flipCard(this, 'blue')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+            <div class="card" id="yellowCard" onclick="flipCard(this, 'yellow')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+
+            <div class="card" id="redCard" onclick="flipCard(this, 'red')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+            <div class="card" id="greenCard" onclick="flipCard(this, 'green')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+            <div class="card" id="redCard" onclick="flipCard(this, 'red')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+            <div class="card" id="greenCard" onclick="flipCard(this, 'green')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+
+            <div class="card" id="yellowCard" onclick="flipCard(this, 'yellow')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+            <div class="card" id="blueCard" onclick="flipCard(this, 'blue')">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
+        </div>
+        <h3 id="finalResult">Il vous reste: <span id="timer">20</span>s</h3>
+    </div>
+    <script>
+        var compareColor = [];
+        var i = 0;
+        var card;
+        var lastCards = [];
+        var ultimatum;
+        var timerStatus = false;
+        var etat = 0;
+        var stockRightAnswer = [];
+        var resetOneCardTimer;
+
+        function flipCard(element, color) { // au clique retourne la carte;
+            timerStatus = true;
+            etat++;
+            card = element;
+            card.style.transform = "rotateY(180deg)";
+            card.style.pointerEvents = "none";
+            compareColor.push(color); // stock la couleur reçu en paramètre dans le tableau compareColor.
+            i++;
+            lastCards.push(element);
+            compareCard();
+            resetOneCardTimer = setTimeout(function() {
+                resetCard();
+            }, 4000);
+            if ((timerStatus === true) && (etat == 1)) {
+                var remainingTime = 20;
+                ultimatum = setInterval(function() { //affiche le timer sur le html avec changement des données du span.
+                    var divTimer = document.querySelector("#timer");
+                    remainingTime = remainingTime - 1; // on actualise la valeur du chrono sinon on serait constamment bloqué remainingTime = 20;
+                    divTimer.innerHTML = remainingTime;
+                    etat = 3;
+                    if ((remainingTime == 0) && (stockRightAnswer.length < 8)) { //si chrono est à 0 et stockRightAnswer comprend moins de valeurs que le nombre de carte.
+                        clearInterval(ultimatum);
+                        var blockCard = document.querySelectorAll(".card");
+                        for (var o = 0; o < blockCard.length; o++) {
+                            blockCard[o].style.pointerEvents = "none"; // bloque le clique sur cartes et donc supprime l'interaction onclick().
+                            var resultat = document.querySelector("#finalResult");
+                            resultat.innerHTML = "<h3>" + "Vous avez Perdu" + "<h3>"; // le jeu est fini.
+                            reloadGame();
+                        }
+                    }
+                    if (stockRightAnswer.length == 8) { // si stockRightAnswer comprend 8 valeurs = le nombre de cartes du memo
+                        clearInterval(ultimatum); //clear le chrono
+                        var resultat = document.querySelector("#finalResult");
+                        resultat.innerHTML = "<h3>" + "Vous avez Gagné" + "<h3>"; // affiche le resultat.
+                        reloadGame()
+                    }
+                }, 1000);
+            }
+        }
+
+        function compareCard() {
+            clearTimeout(resetOneCardTimer); //reset le timeout à sa valeur d'origine pour relaisser 4s avant que la première carte se retourne.
+            if (i == 2) { // i++ = un clique utilisateur sur une carte
+                for (var x = 0; x < compareColor.length; x++) { //compare la couleur envoyé via la fonction flipCard
+                    if (compareColor[0] === compareColor[1]) {
+                        console.log("même couleur");
+                        for (var z = 0; z < compareColor.length; z++) { //boucle dans le tableau compareColor et les stock dans stockRightAnswer pour compté le nombre de pair trouvée.
+                            stockRightAnswer.push(compareColor[z]);
+                        }
+                        compareColor = [];
+                        lastCards = [];
+                        i = 0; // remise à zéro du clique.
+                    } else {
+                        console.log("pas la même couleur");
+                        setTimeout(function() {
+                            resetCard();
+                        }, 500); // setTimeout est présent pour laisser à l'utiisateur le temps de voir la seconde carte.
+                        setTimeout(function() {
+                            lastCards = [];
+                        }, 500);
+                    }
+
+                }
+            }
+        }
+
+        function reloadGame() { //recharge la page apres avoir fini le jeu.
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
+        }
+
+        function resetCard() { //reset les cartes ;
+            for (var y = 0; y < lastCards.length; y++) {
+                lastCards[y].style.transform = "rotateY(0deg)";
+                lastCards[y].style.pointerEvents = "auto";
+                compareColor = [];
+                i = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

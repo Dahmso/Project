@@ -26,4 +26,6 @@ alert(cousinsArray);
 // réunit tous les éléments d'un tableau dans une chaine de caractères.
 var var3 = a.join(" + "); // on affecte "Vent + Pluie + Feu" à var3
 var var4 = a.join("");    // on affecte "VentPluieFeu" à var4
+// modifier le sens de la boucle pour supprimer des elements d'un tableau afin d'eviter les erreurs d'indexion
+for (var i = tableau.length; i > 0; i--) {};
 //

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+#title {
+  margin: 5%;
+}
+#board {
+  width: 99%;
+  height: 500px;
+  display: inline-block;
+  text-align: center;
+}
+#memo {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.card, .front, .back {
+	width: 105px;
+	height: 155px;
+  border-radius: 3px;
+}
+
+/* animation, vitesse  */
+.card {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+  display: inline-block;
+}
+
+/* cache le front card*/
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+}
+
+/* front placé devant back */
+ .front {
+	z-index: 2;
+  background-color:#424242;
+}
+
+/* back, caché au chargement */
+ .back {
+	transform: rotateY(180deg);
+
+}
+#blueCard .back {
+  background-color: #4285F4;
+}
+
+#greenCard .back {
+  background-color: #34A853;
+}
+
+#yellowCard .back {
+  background-color: #FFCC01;
+}
+
+#redCard .back {
+  background-color: #EA4335;
+}

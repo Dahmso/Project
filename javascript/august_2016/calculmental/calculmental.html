@@ -32,10 +32,10 @@
         var score = 0;
 
         function hideContent() {
-            var stopAnimation = document.querySelector("#questionmark");
+            var stopAnimation = document.querySelector("#questionmark");//image
             stopAnimation.style.animation = "paused";
-            var textToHide = document.querySelector(".clickme");
-            var textToHide2 = document.querySelector(".clickme1");
+            var textToHide = document.querySelector(".clickme");//text a gauche
+            var textToHide2 = document.querySelector(".clickme1");// text a droite
             var blocToHide = document.querySelector("#randomize");
             console.log(textToHide);
             setInterval(function() {
@@ -44,9 +44,6 @@
             setInterval(function() {
                 textToHide2.innerHTML = "<h3>" + "GO ! ! !" + "</h3>";
             }, 3000);
-            setInterval(function() {
-                textToHide2.innerHTML = "<h3>" + "GO ! ! !" + "</h3>";
-            }, 4000);
             setTimeout(function() {
                 showCalc();
             }, 5000);
@@ -69,7 +66,7 @@
                 userButton.style.display = "inline-block";
             }, 2000);
             console.log(result);
-          }
+        }
 
         function compareUserResult() {
             var userInput = document.querySelector("#userinput");
@@ -77,9 +74,9 @@
                 showQuestion.innerHTML = "<h3>" + "Bravo !" + "</h3>";
                 userInput.value = "";
                 score++;
-                    setTimeout(function() {
-                        showCalc();
-                    }, 2000);
+                setTimeout(function() {
+                    showCalc();
+                }, 2000);
             } else {
                 showQuestion.innerHTML = "<h3>" + "Perdu !" + "</h3>";
                 userInput.value = "";
