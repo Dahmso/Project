@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+
+<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="chpPrenom">Prenom</label>
+        <input id="chpPrenom" type="text">
+      </div>
+      <div>
+        <label for="chpNom">Nom</label>
+        <input id=chpNom type="text">
+      </div>
+      <div>
+        <label for="chpMail">Mail</label>
+        <input id=chpMail type="text">
+      </div>
+      <button type="button" onclick="gestionnaireContact.ajouteContact(document.getElementById('chpNom').value, document.getElementById('chpPrenom').value, document.getElementById('chpMail').value)">
+        Ajouter</button>
+    </form>
+
+    <ul id="liste-contacts"></ul>
+
+
+    <script type="text/javascript">
+        var gestionnaireContact = {
+                contacts: [],
+                ajouteContact: function(nom, prenom, mail) {
+
+                    //  créer un objet nouveauContact avec les valeurs transmises
+                    var nouveauContact = {
+                        mail: mail,
+                        nom: nom,
+                        prenom: prenom
+                    };
+
+                    //  ajoute nouveauConact à contacts
+                    this.contacts.push(nouveauContact);
+                    console.log(this.contacts);
+                    this.afficheContacts();
+                },
+                afficheContacts: function() {
+                    this.videListe();
+                    var elementListe = document.getElementById('liste-contacts');
+                    // pour tous le scontacts
+                    for (var i = 0; i < this.contacts.length; i++) {
+                        var contact = this.contacts[i];
+                        // crée un element <li>
+                        var li = document.createElement('li');
+                        var button = document.createElement("button");
+                        button.innerText = "Supprimer";
+                        button.onclick = "deleteContact()";
+                        li.innerText = contact.nom + " " + contact.prenom + ' ' + contact.mail;
+                        // remplir l'element avec les infos du contacts
+                        elementListe.appendChild(li);
+                        li.appendChild(button);
+                    }
+                },
+                deleteContact: function() {
+
+                },
+                videListe: function() {
+                        var elementListe = document.getElementById('liste-contacts');
+                        var elements = elementListe.children;
+                          }
+          }
+    </script>
+    <style media="screen">
+    body {
+background: repeating-linear-gradient(-45deg,#009688,#009688 20px,#8BC34A 20px,#8BC34A 40px);
+background-size:56px 56px;/* This is unique for this background, need to find a pattern and develop a formula */
+background-position-x:0%;
+-webkit-animation:'slide' 20s infinite linear forwards;
+
+}
+@-webkit-keyframes 'slide' {
+	0%{
+		background-position-x:0%;
+	}
+	100% {
+		background-position-x:100%;
+	}
+}
+    </style>
+</body>
+
+</html>

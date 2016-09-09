@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="exojquery.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-deep_purple.min.css">
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <meta charset="utf-8">
+    <title>JQuery</title>
+  </head>
+  <body>
+    <header id="topbar">
+      <div id="headbar">
+        <div id="iconsite">
+          <i class="material-icons">power_settings_new</i>
+        </div>
+        <div id="navbar">
+        <ul>
+          <li>JQuery</li>
+          <li>Javascript</li>
+          <li>Test</li>
+        </ul>
+        </div>
+      </div>
+  </header>
+  <main id="pagecontent">
+    <div id="buttondiv">
+      <div id="buttonfade">
+      <button id="thisbuttonfade"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Fade
+</button>
+</div>
+<div id="buttoncolor">
+<button  id="thisbuttoncolor"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--pink">
+Color
+</button>
+</div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var display = false;
+    $( document ).ready(function() {
+      $("#thisbuttoncolor").click(function() {
+        var rand = 'rgb(' + (Math.floor((256-199)*Math.random()) + 200) + ',' + (Math.floor((256-199)*Math.random()) + 200) + ',' + (Math.floor((256-199)*Math.random()) + 200) + ')';
+      $(".material-icons, li").css( "color",rand );
+    });
+    $("#thisbuttonfade").click(function() {
+      $("#navbar").fadeToggle( "slow", function() {
+        });
+      });
+});
+  </script>
+  </body>
+</html>

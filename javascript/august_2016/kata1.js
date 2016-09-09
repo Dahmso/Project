@@ -47,3 +47,36 @@ var obj = {mail:"", nom:"", prenom: ""}
 }
 arrayToObject(liste);
 // Dans la zone :
+function isInTheZone(point, zone){
+	if (((point.x + zone.width) >= (zone.x)) && ((point.x + zone.width) <= (zone.x + zone.width))) {
+		return true;
+	}   else {
+	    return false;
+	    }
+}
+// Secondes en heures, minutes;
+function sec2h(sec ){
+    if (sec) {
+   		var seconde = sec % 60;
+   		var verif = (sec - seconde) / 60; //165
+     	if (verif >= 60) {
+      var minute = verif % 60;
+      var hour = (verif - minute) / 60;
+     	}
+    	} else {
+        return 0;
+    		}
+     return hour +"h" +  " " +  minute +  "m" +  " " + seconde + "s";
+}
+// Censure:
+function censure(unTexte, motsInterdits){
+	var textToFilter = unTexte;
+	for (var i = 0; i < motsInterdits.length; i++){
+		var filterText = textToFilter.replace(motsInterdits[i], "#");
+		textToFilter = filterText;
+
+	}
+		return textToFilter;
+}
+censure( "ab cd .ef gh ij",[ "ef","cd" ] );
+// Morpion : arbitre;

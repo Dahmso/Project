@@ -1,0 +1,40 @@
+html {
+  margin: 0;
+  padding: 0;
+  font: 100% "Roboto Mono", monospace; }
+
+#headbar {
+  height: 12vh;
+  width: 100%;
+  background-color: #1A237E;
+  display: inline-block; }
+  #headbar #iconsite {
+    position: relative;
+    display: inline-block;
+    top: 2vh;
+    margin-left: 3vw; }
+    #headbar #iconsite .material-icons {
+      font-size: 56px;
+      color: white;
+      top: 20px; }
+  #headbar #navbar {
+    display: inline-block; }
+    #headbar #navbar ul li {
+      color: white;
+      list-style: none;
+      display: inline-block;
+      padding: 20px  30px 20px 30px;
+      font-size: 140%; }
+
+#pagecontent #buttondiv {
+  display: inline-block;
+  margin-top: 20vh;
+  width: 100%;
+  text-align: center; }
+  #pagecontent #buttondiv #buttonfade {
+    display: inline-block; }
+  #pagecontent #buttondiv #buttoncolor {
+    display: inline-block;
+    margin-left: 20px; }
+
+/*# sourceMappingURL=exojquery.css.map */
