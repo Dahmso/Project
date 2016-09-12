@@ -36,5 +36,8 @@ html {
   #pagecontent #buttondiv #buttoncolor {
     display: inline-block;
     margin-left: 20px; }
+    #pagecontent #buttondiv #buttoncreatediv {
+      display: inline-block;
+      margin-left: 20px; }
 
 /*# sourceMappingURL=exojquery.css.map */

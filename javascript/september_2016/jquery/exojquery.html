@@ -38,6 +38,13 @@
 Color
 </button>
 </div>
+<div id="buttoncreatediv">
+<button id="thisbuttoncreatediv"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--orange">
+Div
+</button>
+</div>
+<ul class="hello">
+</ul>
     </div>
   </main>
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
@@ -52,6 +59,9 @@ Color
       $("#navbar").fadeToggle( "slow", function() {
         });
       });
+      $("#thisbuttoncreatediv").click(function() {
+      $(".hello").append("<div>hello world</div>");
+    });
 });
   </script>
   </body>
