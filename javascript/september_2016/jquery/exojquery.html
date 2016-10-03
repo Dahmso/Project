@@ -49,7 +49,6 @@ Div
   </main>
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    var display = false;
     $( document ).ready(function() {
       $("#thisbuttoncolor").click(function() {
         var rand = 'rgb(' + (Math.floor((256-199)*Math.random()) + 200) + ',' + (Math.floor((256-199)*Math.random()) + 200) + ',' + (Math.floor((256-199)*Math.random()) + 200) + ')';
@@ -60,7 +59,7 @@ Div
         });
       });
       $("#thisbuttoncreatediv").click(function() {
-      $(".hello").append("<div>hello world</div>");
+      $(".hello").append("<div>Hello World</div>").css("background-color","blue");
     });
 });
   </script>
