@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="henri5.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+    <title>Question / Réponse</title>
+</head>
+
+<body onload="initPage()">
+    <div id="questionnaire">
+        <div id="titre">
+            <h1> <span id="red">Question</span> / <span id="green">Reponse</span> </h1>
+        </div>
+        <div id="blocquestion">
+            <div id="questionchamp">
+                <h3>Question... <span id="question">?</span></h3>
+            </div>
+        </div>
+        <div id="blocreponse">
+            <input id="userresponse" type="text">
+            <button id="button" onclick="dernierMot()">Dernier mot</button>
+        </div>
+    </div>
+    <script>
+    var questions;
+    function initPage() {
+      var questionLoader = new XMLHttpRequest();
+      questionLoader.addEventListener('load', questionList);
+      questionLoader.addEventListener('error', onLoadError);
+      questionLoader.open("get", "henriquestion.json", true);
+      questionLoader.send();
+    }
+    function onLoadError(event) {
+      alert("Une erreur est survenue");
+    }
+    function questionList(event) {
+      var dataQuestion = event.currentTarget.responseText;
+      // console.log('reponse', dataQuestion);
+      var loadedData = JSON.parse(dataQuestion);
+      // console.log('loadedData', loadedData);
+      var questionsData = loadedData.questionsData;
+      // console.log(questionsData);
+      return questions = questionsData;
+      // showQuestion(questionsData);
+    }
+        // function showQuestion(questionsData){
+        //   questionsData.map(function(questionsData){
+        //      var giveQuestion = document.getElementById("questionchamp");
+        //      var question = questionsData.questData;
+        //      var reponse = questionsData.repData;
+        //      giveQuestion.innerHTML = '<h3>' + question + '</h3>';
+        //
+        //      console.log(question);
+        //
+        //   })
+        // }
+        var nombre = 0;
+        function showQuestion(param) {
+            var inputUser = document.querySelector("#userresponse");
+            var button = document.querySelector("#button");
+            var giveQuestion = document.getElementById("questionchamp");
+            if (nombre < questions.length) {
+            question = questions[param].questData;
+            reponse = questions[param].repData;
+            giveQuestion.innerHTML = '<h3>' + question + '</h3>';
+          } else {
+            giveQuestion.innerHTML = '<h3>' + "The End" + '</h3>';
+            button.style.display = "none";
+            inputUser.style.display = "none";
+            }
+        }
+        function dernierMot() {
+            showQuestion(nombre);
+            console.log(questions);
+            var userInput = document.getElementById("userresponse").value;
+            var userInputAnyCase = userInput.toLowerCase();
+            var giveQuestion = document.getElementById("questionchamp");
+            if ((userInputAnyCase === reponse) && (nombre < questions.length)){
+                giveQuestion.innerHTML = '<h3>' + "Bravo !" + '</h3>';
+                nombre++;
+                Input = document.getElementById("userresponse");
+                Input.value = "";
+                setTimeout(function() {showQuestion(nombre)}, 3000);
+            } else {
+                giveQuestion.innerHTML = '<h3>' + "Perdu !" + '</h3>';
+                Input = document.getElementById("userresponse");
+                Input.value = "";
+                setTimeout(function() {
+                    giveQuestion.innerHTML = '<h3>' + question + '</h3>'
+                }, 3000);
+            }
+        }
+        setTimeout(function() {
+            showQuestion(nombre);
+        }, 3000);
+    </script>
+</body>
+
+</html>

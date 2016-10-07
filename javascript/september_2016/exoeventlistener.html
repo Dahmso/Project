@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script type="text/javascript">
+        function emetEvenement(evenementClick){
+            console.log('emetEvenement', evenementClick.currentTarget.dataset.contenu);
+            var evenementSelection = new CustomEvent(
+                    "selectionPays",
+                    {
+                        bubbles: true,
+                        detail  :evenementClick.currentTarget.dataset.contenu
+                    });
+            evenementClick.currentTarget.dispatchEvent(evenementSelection);
+        }
+        function supprimeElement(event){
+            var e = new CustomEvent('suppressionPays', {
+                bubbles:true,
+                detail:{paysASupprimer:event.currentTarget.dataset.contenu}
+            });
+            event.currentTarget.dispatchEvent(e);
+        }
+        function initPage(){
+            document.body.addEventListener('selectionPays', function(e){
+                console.log('evenement', e.type, e.detail);
+                document.getElementById('titreSelection').innerText = e.detail;
+            });
+            document.body.addEventListener('suppressionPays', function(e){
+                console.log('evenement', e.type, e.detail.paysASupprimer);
+                //document.getElementById('titreSelection').innerText = e.detail;
+            });
+            setTimeout(function(){
+                var evenementSelection = new CustomEvent(
+                        "selectionPays",
+                        {
+                            bubbles: true,
+                            detail  :'Italie'
+                        });
+                document.body.dispatchEvent(evenementSelection);
+            }, 3000)
+        }
+    </script>
+</head>
+<body onload="initPage()">
+
+
+<div>
+    <div >
+        <span data-contenu="France" onclick="emetEvenement(event)">France  </span>
+        <span><a data-contenu="France" href="#" onclick="supprimeElement(event)">X</a></span>
+    </div>
+    <div class="">
+        <span data-contenu="Espagne" onclick="emetEvenement(event)">Espagne </span>
+        <span><a data-contenu="Espagne" href="#" onclick="supprimeElement(event)">X</a></span>
+    </div>
+    <div>
+        <span data-contenu="Italie" onclick="emetEvenement(event)">Italie </span>
+        <span><a data-contenu="Italie" href="#" onclick="supprimeElement(event)">X</a></span>
+    </div>
+</div>
+
+<ul>
+    <li data-contenu="France" onclick="emetEvenement(event)">France</li>
+    <li data-contenu="Espagne" onclick="emetEvenement(event)">Espagne</li>
+    <li data-contenu="Italie" onclick="emetEvenement(event)">Italie</li>
+</ul>
+
+<label for="chk0">France</label>
+<input id="chk0" data-contenu="France" type="checkbox" name="name" value="France" onchange="emetEvenement(event)">
+<label for="chk1">Espagne</label>
+<input id="chk1" data-contenu="Espagne" type="checkbox" name="name" value="Espagne" onchange="emetEvenement(event)">
+
+<h1 id="titreSelection"></h1>
+
+</body>
+</html>

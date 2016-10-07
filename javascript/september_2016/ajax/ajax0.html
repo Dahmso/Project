@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+    function initPage(){
+          // initialisation des écouteurs
+          document.body.addEventListener('colorSelection', function(event){
+              console.log('colorSelection', event.detail);
+              document.body.style.backgroundColor = event.detail;
+          });
+          // charger le fichier de couleurs
+          var colorLoader = new XMLHttpRequest();
+          colorLoader.addEventListener('load', onColorsLoaded);
+          colorLoader.addEventListener('error', onLoadError);
+          colorLoader.open('get', 'colors.json', true);
+          colorLoader.send();
+      }
+      /* fonction de traitement des données chargées
+       depuis le fichier colors.json*/
+      function onColorsLoaded(event){
+          // console.log('onColorsLoaded');
+          var result = event.currentTarget.responseText;
+          console.log('reponse', result);
+          var loadedObject = JSON.parse(result);
+          console.log('loadedObject', loadedObject);
+          var colors = loadedObject.colors;
+          console.log(
+                  'couleur 0',colors[0],
+                  'name', colors[0].name,
+                  "value", colors[0].value
+          );
+          displayColors(colors);
+      }
+      /* fonction de traitement des erreurs de chargement
+       depuis le fichier colors.json*/
+      function onLoadError(event){
+          console.log('onLoadError');
+          alert('une erreur a eu lieu. merci de ré-esayer ultérieurement');
+          console.log('error', event);
+      }
+      function displayColors(colors){
+          //  fonction map cf learnRX
+          colors.filter(function(color){
+              if( color.name != '')
+                  return true;
+              else return false;
+          }).map(function( color ){
+              var bt = document.createElement('button');
+              // on insère le titre du bouton
+              bt.innerText = color.name;
+              // on associe la valeur/value au bouton
+              bt.setAttribute('data-color', color.value);
+              bt.addEventListener('click', function(event){
+                  var selectedColor = event.currentTarget.dataset.color;
+                  console.log('click', selectedColor);
+                  var colorEvent = new CustomEvent(
+                          'colorSelection',{
+                              bubbles:true,
+                              detail : selectedColor
+                          });
+                  event.currentTarget.dispatchEvent(colorEvent);
+              });
+              return bt;
+          }).forEach(function(bt){
+              document.body.appendChild(bt);
+          });
+      }
+    </script>
+</head>
+<body onload="initPage()">
+
+</body>
+</html>

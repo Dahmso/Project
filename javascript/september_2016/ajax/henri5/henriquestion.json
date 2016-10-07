@@ -1,0 +1,24 @@
+{
+	"questionsData":[
+		{
+			"questData":"De quelle couleur est le cheval blanc d'Henri IV ?",
+			"repData":"blanc"
+		},
+		{
+			"questData":"Combien y'a t-il de 7 nains ?",
+			"repData":"sept",
+			"repData2":"7"
+		},
+		{
+			"questData":"Combien y'a t-il de mousquetaire ?",
+			"repData":"trois",
+			"repData2":"3"
+		},
+		{
+			"questData":"Combien y'a t-il de jour dans une semaine ?",
+			"repData":"sept",
+			"repData2":"7"
+		}
+
+	]
+}
