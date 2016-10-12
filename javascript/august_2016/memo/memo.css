@@ -8,6 +8,7 @@ body {
 }
 #board {
   width: 99%;
+  height: 500px;
   display: inline-block;
   text-align: center;
 }
@@ -38,14 +39,29 @@ body {
 	position: absolute;
 }
 
-/* front placé devant back */
+/* front placÃ© devant back */
  .front {
 	z-index: 2;
   background-color:#424242;
 }
 
-/* back, caché au chargement */
+/* back, cachÃ© au chargement */
  .back {
 	transform: rotateY(180deg);
 
+}
+#blueCard .back {
+  background-color: #4285F4;
+}
+
+#greenCard .back {
+  background-color: #34A853;
+}
+
+#yellowCard .back {
+  background-color: #FFCC01;
+}
+
+#redCard .back {
+  background-color: #EA4335;
 }
