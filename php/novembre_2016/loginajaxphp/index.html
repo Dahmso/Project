@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login AJAX/PHP</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="./material.min.css">
+	<script src="./material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-light_green.min.css" />
+	
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+	<main class="mdl-layout__content">
+		<div class="mdl-card mdl-shadow--6dp">
+			<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+				<h2 class="mdl-card__title-text">AJAX/PHP</h2>
+			</div>
+	  	<div class="mdl-card__supporting-text">
+				<form id="login_form" method="post">
+					<div class="mdl-textfield mdl-js-textfield">
+						<input class="mdl-textfield__input" type="text" id="username" name="identifiant" value="lol@gmail.com" />
+						<label class="mdl-textfield__label" for="username">Username</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield">
+						<input class="mdl-textfield__input" type="password" id="userpassword" name="password" value="mdr" />
+						<label class="mdl-textfield__label" for="userpassword">Password</label>
+					</div>
+				</form>
+				<div id="flexboard">
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Log in</button>
+					<div class="mdl-layout-spacer"></div>
+					<span class="invalideidboard">
+    					<span class="invalideidinput"></span>
+					</span>
+					</div>
+		</div>
+		</div>
+	</main>
+</div>
+<script type="text/javascript">
+//Objet JS incluant l'input des deux et l'envoyez via requete.send en Post ou sans objet mais via l'url en GET
+		function sendUserInfo() {
+			var userNameInput = document.querySelector("#username").value;
+			var userPasswordInput = document.querySelector("#userpassword").value;
+			requete =  new XMLHttpRequest();
+			requete.onload = returnVerif;
+			requete.onerror = function () { console.log("Request Error"); };
+            requete.open('post', "verif.php", true);
+            var f  = document.getElementById('login_form');
+            requete.send(new FormData(f));
+		}
+		function returnVerif() {
+			var dataReceived = this.responseText;
+			console.log(this);
+			if (dataReceived >= 1) {
+				
+				alert("Bienvenue");
+
+			} else {
+				alert("Identifiant ou Mot de passe Incorrect");
+			}
+			
+		}
+		var submitButton = document.querySelector(".mdl-button");
+		submitButton.addEventListener('click', sendUserInfo, true);
+
+
+	</script>
+</body>
+</html>
