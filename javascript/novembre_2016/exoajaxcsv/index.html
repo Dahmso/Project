@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX/CSV</title>
+</head>
+<body>
+<p id="bloc-csv">
+    <button onclick="loadCsv()">Chargement fichier CSV</button>
+</p>
+<script type="text/javascript">
+var requete = new XMLHttpRequest();
+function loadCsv() {
+
+	requete.onload = display;            
+            function display(param) {
+           	var data = this.responseText;
+            var users = parseTextData(data);
+            //console.log(users[0][0]);
+            var userList = document.createElement('ul');
+            for (var i = 0; i < users.length; i++) {
+            	var userLi = document.createElement('li');
+            	userLi.innerText = users[i][0] + ' ' + users[i][1] + ' » ' + users[i][2];
+            	userList.appendChild(userLi);
+            }
+            document.getElementById('bloc-csv').appendChild(userList);          
+        }
+            
+        
+
+    requete.open('get', 'users.csv', true);
+    requete.send();
+
+}
+ function parseTextData(text) {
+            var users = text.split(/(?:\n)/g);
+            return users.map(function (userText) {
+                return userText.split(',');
+            });
+        }
+
+
+</script>
+
+
+</body>
+</html>
