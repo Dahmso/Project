@@ -1,0 +1,33 @@
+
+    .mdl-card  {
+      text-align: center;
+    }
+    /*.mdl-radio.is-upgraded {
+      padding: 1%;
+    }*/
+    .mdl-card__supporting-text {
+      width: 100%;
+    }
+    .mdl-card__actions {
+      margin-top: 2%;
+    }
+    .reset {
+      text-decoration: none;
+      color: orange;
+      width: 10%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .mdl-radio__inner-circle {
+      background-color: brown;
+    }
+    .mdl-radio.is-checked .mdl-radio__outer-circle {
+      border-color: brown;
+    }
+    .mdl-radio.is-checked .mdl-radio__inner-circle {
+      border-color: brown;
+    }
+    img {
+      width: 75%;
+      border: 2px solid lightgrey;
+    }
