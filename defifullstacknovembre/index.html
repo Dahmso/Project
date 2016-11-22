@@ -48,7 +48,9 @@
     function onDataReceived() {
         var event = JSON.parse(this.responseText);
         var nodeTable = document.querySelector('#nodeTable');
-        for (var i = 0; i < event.items.length; i++) {
+        var nodeTable = document.querySelector('#nodeTable');
+        for (var i = 0; i < hostedEvent.length; i++) {
+            if (hostedEvent[i].status == "confirmed") {
             var eventTablerow = document.createElement('tr');
             var eventCreator = document.createElement('td');
             eventCreator.className = 'mdl-data-table__cell--non-numeric';
@@ -69,13 +71,18 @@
             eventTablerow.appendChild(eventUpload);
             eventUpload.appendChild(sendData);
             sendData.innerHTML = "Enregistrer";
-            eventCreator.innerHTML = event.items[i].creator.displayName;
-            eventCreatorMail.innerHTML = event.items[i].creator.email;
-            eventName.innerHTML = event.items[i].organizer.displayName;
-            eventDetails.innerHTML = event.items[i].summary;
-            eventStart.innerHTML = event.items[i].start.dateTime;
-            eventEnd.innerHTML = event.items[i].end.dateTime;
+            if(typeof hostedEvent[i].creator.displayName == "undefined") {
+                eventCreator.innerHTML = hostedEvent[i].creator.email;
+            } else {
+                eventCreator.innerHTML = hostedEvent[i].creator.displayName;
+            }   
+            eventCreatorMail.innerHTML = hostedEvent[i].creator.email;
+            eventName.innerHTML = hostedEvent[i].organizer.displayName;
+            eventDetails.innerHTML = hostedEvent[i].summary;
+            eventStart.innerHTML = hostedEvent[i].start.dateTime;
+            eventEnd.innerHTML = hostedEvent[i].end.dateTime;
             sendData.setAttribute("href", "pushDB.php?title=" + eventDetails.innerHTML + "&mail=" + eventCreatorMail.innerHTML + "&start=" + eventStart.innerHTML + "&end=" + eventEnd.innerHTML);
+            }
         }
 
     }
@@ -92,7 +99,9 @@
     	// console.log(JSON.parse(this.responseText));
     	var eventInDB = JSON.parse(this.responseText);
     	console.log(eventInDB[0]);
-
+        for (var i = 0; i < eventInDB; i++) {
+            eventInDB[i];
+        }
     }
 
 
