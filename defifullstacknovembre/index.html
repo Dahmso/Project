@@ -47,43 +47,8 @@
 
     function onDataReceived() {
         var event = JSON.parse(this.responseText);
-        var nodeTable = document.querySelector('#nodeTable');
-        var nodeTable = document.querySelector('#nodeTable');
-        for (var i = 0; i < hostedEvent.length; i++) {
-            if (hostedEvent[i].status == "confirmed") {
-            var eventTablerow = document.createElement('tr');
-            var eventCreator = document.createElement('td');
-            eventCreator.className = 'mdl-data-table__cell--non-numeric';
-            var eventCreatorMail = document.createElement('td');
-            var eventName = document.createElement('td');
-            var eventDetails = document.createElement('td');
-            var eventStart = document.createElement('td');
-            var eventEnd = document.createElement('td');
-            var eventUpload = document.createElement('td');
-            var sendData = document.createElement("a");
-            nodeTable.appendChild(eventTablerow);
-            eventTablerow.appendChild(eventCreator);
-            eventTablerow.appendChild(eventCreatorMail);
-            eventTablerow.appendChild(eventName);
-            eventTablerow.appendChild(eventDetails);
-            eventTablerow.appendChild(eventStart);
-            eventTablerow.appendChild(eventEnd);
-            eventTablerow.appendChild(eventUpload);
-            eventUpload.appendChild(sendData);
-            sendData.innerHTML = "Enregistrer";
-            if(typeof hostedEvent[i].creator.displayName == "undefined") {
-                eventCreator.innerHTML = hostedEvent[i].creator.email;
-            } else {
-                eventCreator.innerHTML = hostedEvent[i].creator.displayName;
-            }   
-            eventCreatorMail.innerHTML = hostedEvent[i].creator.email;
-            eventName.innerHTML = hostedEvent[i].organizer.displayName;
-            eventDetails.innerHTML = hostedEvent[i].summary;
-            eventStart.innerHTML = hostedEvent[i].start.dateTime;
-            eventEnd.innerHTML = hostedEvent[i].end.dateTime;
-            sendData.setAttribute("href", "pushDB.php?title=" + eventDetails.innerHTML + "&mail=" + eventCreatorMail.innerHTML + "&start=" + eventStart.innerHTML + "&end=" + eventEnd.innerHTML);
-            }
-        }
+        var hostedEvent = event.items;
+        displayEvent(hostedEvent);
 
     }
 
@@ -104,6 +69,45 @@
         }
     }
 
+     function displayEvent(hostedEvent) {
+        hostedEvent.filter(function(e){
+            return (e.status == "confirmed");
+        }).map(function(e){
+        //    console.log(e);
+           var nodeTable = document.querySelector('#nodeTable');
+           var eventTablerow = document.createElement('tr');
+           var eventCreator = document.createElement('td');
+           eventCreator.className = 'mdl-data-table__cell--non-numeric';
+           var eventCreatorMail = document.createElement('td');
+           var eventName = document.createElement('td');
+           var eventDetails = document.createElement('td');
+           var eventStart = document.createElement('td');
+           var eventEnd = document.createElement('td');
+           var eventUpload = document.createElement('td');
+           var sendData = document.createElement("a");
+           nodeTable.appendChild(eventTablerow);
+           eventTablerow.appendChild(eventCreator);
+           eventTablerow.appendChild(eventCreatorMail);
+           eventTablerow.appendChild(eventName);
+           eventTablerow.appendChild(eventDetails);
+           eventTablerow.appendChild(eventStart);
+           eventTablerow.appendChild(eventEnd);
+           eventTablerow.appendChild(eventUpload);
+           eventUpload.appendChild(sendData);
+           sendData.innerHTML = "Enregistrer";
+           if(typeof e.creator.displayName == "undefined") {
+                eventCreator.innerHTML = e.creator.email;
+           } else {
+                eventCreator.innerHTML = e.creator.displayName;
+           }   
+           eventCreatorMail.innerHTML = e.creator.email;
+           eventName.innerHTML = e.organizer.displayName;
+           eventDetails.innerHTML = e.summary;
+           eventStart.innerHTML = e.start.dateTime;
+           eventEnd.innerHTML = e.end.dateTime;
+           sendData.setAttribute("href", "pushDB.php?title=" + eventDetails.innerHTML + "&mail=" + eventCreatorMail.innerHTML + "&start=" + eventStart.innerHTML + "&end=" + eventEnd.innerHTML);
+        });
+    }
 
     onDbData();
 
