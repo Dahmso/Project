@@ -29,9 +29,13 @@
         <tbody id="nodeTable">
         </tbody>
     </table>
+    <div id="DBlist">
+        <ul id="ulDB"> <strong>Liste des Evénements dans la base de donnée</strong>
+        </ul>
     </div>
     <script type="text/javascript">
     var requete;
+    var eventTablerow;
     function getData() {
         requete = new XMLHttpRequest();
         requete.onerror = ajaxError;
@@ -49,7 +53,6 @@
         var event = JSON.parse(this.responseText);
         var hostedEvent = event.items;
         displayEvent(hostedEvent);
-
     }
 
     function onDbData() {
@@ -61,38 +64,24 @@
     }    	
 
     function onDbDataReceived() {
-    	// console.log(JSON.parse(this.responseText));
+        var ulDb = document.querySelector("#ulDB");
     	var eventInDB = JSON.parse(this.responseText);
-    	console.log(eventInDB[0]);
-        for (var i = 0; i < eventInDB; i++) {
-            eventInDB[i];
+        for (var i = 0; i < eventInDB.length; i++) {
+            var liDB = document.createElement("li");
+            liDB.innerHTML = "Evenement: " + eventInDB[i].event_title  + " Crée par " + eventInDB[i].event_creatormail;
+            ulDb.appendChild(liDB);
         }
+
     }
 
-     function displayEvent(hostedEvent) {
+    function displayEvent(hostedEvent) {
         hostedEvent.filter(function(e){
             return (e.status == "confirmed");
         }).map(function(e){
-        //    console.log(e);
-           var nodeTable = document.querySelector('#nodeTable');
-           var eventTablerow = document.createElement('tr');
-           var eventCreator = document.createElement('td');
-           eventCreator.className = 'mdl-data-table__cell--non-numeric';
-           var eventCreatorMail = document.createElement('td');
-           var eventName = document.createElement('td');
-           var eventDetails = document.createElement('td');
-           var eventStart = document.createElement('td');
-           var eventEnd = document.createElement('td');
-           var eventUpload = document.createElement('td');
+           var tableData = ["eventCreator","eventCreatorMail","eventName","eventDetails","eventStart","eventEnd","eventUpload"];
+           createTemplate(tableData);
+           eventCreator.className = 'mdl-data-table__cell--non-numeric';           
            var sendData = document.createElement("a");
-           nodeTable.appendChild(eventTablerow);
-           eventTablerow.appendChild(eventCreator);
-           eventTablerow.appendChild(eventCreatorMail);
-           eventTablerow.appendChild(eventName);
-           eventTablerow.appendChild(eventDetails);
-           eventTablerow.appendChild(eventStart);
-           eventTablerow.appendChild(eventEnd);
-           eventTablerow.appendChild(eventUpload);
            eventUpload.appendChild(sendData);
            sendData.innerHTML = "Enregistrer";
            if(typeof e.creator.displayName == "undefined") {
@@ -108,6 +97,18 @@
            sendData.setAttribute("href", "pushDB.php?title=" + eventDetails.innerHTML + "&mail=" + eventCreatorMail.innerHTML + "&start=" + eventStart.innerHTML + "&end=" + eventEnd.innerHTML);
         });
     }
+     function createTemplate(array){
+         array.map(function(row){
+            var propName = row;
+            window[propName] = document.createElement('td');
+            eventTablerow = document.createElement('tr');            
+            return window[propName];
+    
+         }).forEach(function(element){
+            document.querySelector('#nodeTable').appendChild(eventTablerow);
+            eventTablerow.appendChild(element);
+         });
+     }
 
     onDbData();
 
