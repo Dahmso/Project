@@ -1,0 +1,142 @@
+
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  	color: white;
+}
+.mdl-layout__drawer-button {
+	display: none;
+
+}
+.mdl-layout__header .mdl-layout__drawer-button {
+	background-color: #EF3C79;
+}
+.mdl-layout__header .mdl-layout__drawer-button:focus {
+	outline: none;
+}
+#chatwindow {
+	margin-top: 86px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    height: 400px;
+}
+#mdl-cardsend {
+	margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    height: auto;
+}
+#usermsg, #submitmsg, #formsend {
+
+	display: flex;
+}
+input:focus {
+	outline: none;
+}
+#usermsg {
+	margin-right: 10px;
+}
+#exit {
+	text-decoration: none;
+	color: white;
+}
+#chatbox {
+	overflow-y: scroll;
+  height: inherit;
+}
+
+.mdl-layout-title {
+	font-family: monospace;
+	font-size: 25px;
+}
+#titlelink {
+	opacity: 1;
+}
+#titleicon {
+	font-size: 40px;
+}
+.mdl-navigation__link {
+	opacity: 0.8;
+	font-weight: bolder;
+
+}
+.mdl-navigation__link:hover {
+	opacity: 1;
+}
+#logout {
+  opacity: 1;
+}
+
+
+#formglobal {
+	display: inline-block;
+	position: absolute;
+	right: -335px;
+  max-width: 330px;
+  max-height: 266px;
+
+}
+#globallogin {
+  width: 300px;
+}
+.mdl-card__title .mdl-card__title-text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mdl-textfield input {
+	display: inline-block;
+	width: 90%;
+}
+.mdl-textfield label {
+	width: 90%;
+	left: 28px;
+}
+#inputoverall {
+	display: flex;
+	justify-content: flex-start;
+}
+#inputoverall input {
+	margin-left: 4px;
+}
+.mdl-dialog {
+  margin-top: 25vh;
+}
+
+
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+.mdl-layout__drawer-button {
+	display: block;
+
+}
+#hidebutton {
+    display: none;
+}
+#loginbutton {
+  width: 20px;
+}
+#logout {
+  padding: 0;
+}
+#chatwindow {
+	margin-top: 0px;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    height: 500px;
+   
+}
+.mdl-card__title {
+	display: none;
+}
+#mdl-cardsend {
+	margin-top: 20px;
+    width: 100%; 
+    height: auto;
+
+}
+}
