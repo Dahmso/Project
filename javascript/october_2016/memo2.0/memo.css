@@ -49,3 +49,10 @@ body {
 	transform: rotateY(180deg);
 
 }
+#memoCard {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: auto;
+    justify-content: center;
+}
